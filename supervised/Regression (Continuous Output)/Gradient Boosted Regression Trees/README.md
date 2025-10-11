@@ -31,7 +31,7 @@ It explores three optimization stages — Early Stopping, Randomized Search, and
 ## 📈 Learning Curves
 ![Learning Curve - Early Stop](learningcurve.png)  
 ![Learning Curve - Random Search](learningcurveRSmodel.png)  
-![Learning Curve - Grid Search](learningcurve_bestgridmodel.png)
+![Learning Curve - Grid Search](leaarningcurve_bestgridmodel.png)
 
 ---
 
