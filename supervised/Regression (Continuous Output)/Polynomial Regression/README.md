@@ -55,7 +55,7 @@ The Polynomial Regression project extends Linear Regression by modeling non-line
 ---
 
 ## 📊 Residual Distribution
-![Residual Distribution](residual%20destribution.png)
+![Residual Distribution](residual%20distribution.png)
 
 ---
 
