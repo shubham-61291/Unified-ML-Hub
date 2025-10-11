@@ -83,9 +83,9 @@ This project extends linear regression through **regularization techniques** —
 
 ### OLS vs Ridge vs Lasso vs ElasticNet
 ![Feature Importance (OLS)](feature%20imp.by%20coeff_ordinary.png)  
-![Feature Importance (Ridge)](feature%20importance_ridge.png)  
-![Feature Importance (Lasso)](feature%20importance_lasso.png)  
-![Feature Importance (ElasticNet)](feature%20imp.elasticnet.png)  
+![Feature Importance (Ridge)](feature_importance_ridge.png)  
+![Feature Importance (Lasso)](feature_importance_lasso.png)  
+![Feature Importance (ElasticNet)](feature%20imp.elasticnet.png)
 
 ---
 
