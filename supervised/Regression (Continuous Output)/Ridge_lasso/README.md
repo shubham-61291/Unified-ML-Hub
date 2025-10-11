@@ -44,7 +44,7 @@ This project extends linear regression through **regularization techniques** —
 
 ## 📉 Validation Curves vs Alpha
 ![Ridge: Metrics vs Alpha](RIDGE_metricsvsalpha.png)  
-![Lasso: Metrics vs Alpha](LASSO_metricsvsalpha.png)  
+![Lasso: Metrics vs Alpha](LASSO_metricvsalpha.png)  
 
 ---
 
