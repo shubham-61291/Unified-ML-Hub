@@ -1,5 +1,5 @@
 Linear Regression (California Housing) 📖 Overview
-The Linear Regression (California Housing) project demonstrates supervised learning using a regression approach on the California Housing dataset. It compares performance across Train/Validation/Test splits and 5-Fold Cross-Validation, while visualizing residuals, predictions, and error distributions.
+The Linear Regression (California Housing) project demonstrates supervised learning using a regression approach on the California Housing dataset. It compares performance across Train/Validation/Test splits and 5-Fold Cross-Validation while visualizing residuals, predictions, and error distributions.
 
 🚀 Key Features
 ✅ Regression task predicting continuous housing prices.
@@ -30,25 +30,24 @@ linear_regression/
 Train/Validation/Test Split Metrics
 Validation → MSE: 0.5409, RMSE: 0.7354, MAE: 0.5335, R²: 0.5848, Adjusted R²: 0.5838
 Test → MSE: 0.5203, RMSE: 0.7213, MAE: 0.5210, R²: 0.6066, Adjusted R²: 0.6055
-Cross-Validation (5-Fold Average)
-MSE: 0.5306, RMSE: 0.7283, MAE: 0.5317, R²: 0.6014, Adjusted R²: 0.6006
+Cross-Validation (5-Fold Average) → MSE: 0.5306, RMSE: 0.7283, MAE: 0.5317, R²: 0.6014, Adjusted R²: 0.6006
 
 🖼 Demo
 
 🔹 Metric Comparison
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." width="700"/>
+<img src="https://raw.githubusercontent.com/shubham-61291/Unified-ML-Hub/main/supervised/Regression%20(Continuous%20Output)/Linear%20Regression/metric%20comparison.png" width="700"/>
 
 🔹 Predictions (Actual vs Predicted)
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." width="700"/>
+<img src="https://raw.githubusercontent.com/shubham-61291/Unified-ML-Hub/main/supervised/Regression%20(Continuous%20Output)/Linear%20Regression/predictions.png" width="700"/>
 
 🔹 Residuals (Validation & Test)
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." width="700"/>
+<img src="https://raw.githubusercontent.com/shubham-61291/Unified-ML-Hub/main/supervised/Regression%20(Continuous%20Output)/Linear%20Regression/residuals.png" width="700"/>
 
 🔹 Residual Distribution
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." width="700"/>
+<img src="https://raw.githubusercontent.com/shubham-61291/Unified-ML-Hub/main/supervised/Regression%20(Continuous%20Output)/Linear%20Regression/residual%20distribution.png" width="700"/>
 
 🔹 Residuals CV (1st Fold)
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." width="700"/>
+<img src="https://raw.githubusercontent.com/shubham-61291/Unified-ML-Hub/main/supervised/Regression%20(Continuous%20Output)/Linear%20Regression/residuals%20CV%201st%20fold.png" width="700"/>
 
 🔮 Future Enhancements
 🔹 Add Polynomial Regression comparison.
