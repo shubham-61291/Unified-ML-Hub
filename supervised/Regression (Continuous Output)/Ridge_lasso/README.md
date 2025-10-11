@@ -75,7 +75,7 @@ This project extends linear regression through **regularization techniques** —
 
 ### ElasticNet
 ![ElasticNet: Actual vs Predicted](elasticnet_actualvspred.png)  
-![ElasticNet: Residual Plot](elasticnet_residual.png)  
+![ElasticNet: Residual Plot](elasticnet_reesidual.png)  
 
 ---
 
