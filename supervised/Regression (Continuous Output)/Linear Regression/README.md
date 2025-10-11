@@ -33,14 +33,20 @@ Cross-Validation (5-Fold Average) → MSE: 0.5306, RMSE: 0.7283, MAE: 0.5317, R�
 
 🖼 Demo
 
+## 📈 Metric Comparison
+![Metric Comparison](metric%20comparison.png)
 
+## 📉 Predictions (Actual vs Predicted)
+![Predictions (Actual vs Predicted)](predictions.png)
 
+## 🔍 Residuals (Validation & Test)
+![Residuals (Validation & Test)](residuals.png)
 
+## 📊 Residual Distribution
+![Residual Distribution](residual%20distribution.png)
 
-
-
-
-
+## 🧩 Residuals – CV (1st Fold)
+![Residuals CV (1st Fold)](residuals%20CV%201st%20fold.png)
 
 🔮 Future Enhancements
 🔹 Add Polynomial Regression comparison.
