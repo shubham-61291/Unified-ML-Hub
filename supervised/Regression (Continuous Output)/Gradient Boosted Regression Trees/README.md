@@ -63,7 +63,7 @@ Top features from the best-tuned model:
 
 ## 📊 Partial Dependence & ICE Plots
 ![1D PDP + ICE (Top Features)](pdp_ice_bestgrid_topfeatures.png)  
-![2D PDP Interaction (Top 2 Features)](2Dpdp_interactiontop2features.png)
+![2D PDP Interaction (Top 2 Features)](2Dpdp_interactionoftop2feature.png)
 
 ---
 
