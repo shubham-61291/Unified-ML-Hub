@@ -31,7 +31,6 @@ Validation → MSE: 0.5409, RMSE: 0.7354, MAE: 0.5335, R²: 0.5848, Adjusted R²
 Test → MSE: 0.5203, RMSE: 0.7213, MAE: 0.5210, R²: 0.6066, Adjusted R²: 0.6055
 Cross-Validation (5-Fold Average) → MSE: 0.5306, RMSE: 0.7283, MAE: 0.5317, R²: 0.6014, Adjusted R²: 0.6006
 
-🖼 Demo
 
 ## 📈 Metric Comparison
 ![Metric Comparison](metric%20comparison.png)
