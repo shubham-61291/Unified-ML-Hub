@@ -63,7 +63,7 @@ This project demonstrates its application on **Binary**, **Multiclass**, and **M
 ![PR Curve — Multilabel Label 2](PR_curve_multilabel_label_2.png)
 
 ### Subset Accuracy  
-![Subset Accuracy — Multilabel](KsSubset_accuracy_multilabel.png)
+![Subset Accuracy — Multilabel](KvsSubset_accuracy_multilabel.png)
 
 ---
 
