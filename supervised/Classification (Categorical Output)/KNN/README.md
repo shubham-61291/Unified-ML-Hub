@@ -43,8 +43,6 @@ This project demonstrates its application on **Binary**, **Multiclass**, and **M
 ![ROC Curve — Multiclass](ROC_curve_multiclass.png)  
 ![PR Curve — Multiclass](PR_curve_multiclass.png)
 
-### Calibration Curve  
-![Calibration Curve — Multiclass](calibration_curve_multiclass.png)
 
 ---
 
