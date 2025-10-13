@@ -62,7 +62,7 @@ It includes **K-Means, Hierarchial (Ward & Agglomerative-Complete), DBSCAN, Gaus
 ![t-SNE — DBSCAN](tsne_2d_dbscan.png)
 
 ### Silhouette, Heatmap & Sizes
-![Silhouette — DBSCAN](silhouette_dbscan.png)  
+![Silhouette — DBSCAN](silhouette_bdscan.png)  
 ![Confusion Heatmap — DBSCAN](confusion_heatmap_dbscan.png)  
 ![Cluster Sizes — DBSCAN](cluster_sizes_dbscan.png)
 
