@@ -36,7 +36,7 @@ It includes **K-Means, Hierarchial (Ward & Agglomerative-Complete), DBSCAN, Gaus
 ## 🌲 Hierarchial (Ward) & Agglomerative (Complete)
 
 ### Dendrogram (Ward)
-![Hierarchial Dendrogram — Ward](hierarchial_dendrogram_ward.png)
+![Hierarchial Dendrogram — Ward](hierarchical_dendrogram_ward.png)
 
 ### PCA & t-SNE
 ![PCA — Hierarchial (Ward)](pca_2d_hierarchial_ward.png)  
