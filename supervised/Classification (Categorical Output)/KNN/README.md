@@ -59,7 +59,7 @@ This project demonstrates its application on **Binary**, **Multiclass**, and **M
 ![ROC Curve — Multilabel Fork9](ROC_curve_multilabel_fork9.png)
 
 ### PR Curves  
-![PR Curve — Multilabel](PR_curve_multilabel.png)  
+![PR Curve — Multilabel](PR_Curve_multilabel.png)  
 ![PR Curve — Multilabel Label 2](PR_curve_multilabel_label_2.png)
 
 ### Subset Accuracy  
