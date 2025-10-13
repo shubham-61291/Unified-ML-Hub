@@ -33,7 +33,7 @@ It includes complete evaluation pipelines: cross-validation, ROC/PR curves, conf
 ![ROC Curve — Binary](ROC_curve_binary.png)
 
 ![PR Curve — XGBoost](PR_curve_xgboost.png)
-![PR Curve — Multiclass](PR_curve_multiclass.png)
+![PR Curve — Multiclass](PR_curvr_multiclass.png)
 ![PR Curve — CatBoost](PR_curve_multiclass_catboost.png)
 
 ---
