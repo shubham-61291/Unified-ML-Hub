@@ -1,90 +1,83 @@
-# ⚡ Gradient Boosting — XGBoost · LightGBM · CatBoost
+# ⚡ Gradient Boosting — XGBoost · LightGBM · CatBoost (Binary & Multiclass Classification)
 
-This project demonstrates **GPU-accelerated Gradient Boosting** for  
-1️⃣ Binary Classification (Breast Cancer)  
-2️⃣ Multiclass Classification (Iris)  
-3️⃣ Multilabel Classification (Synthetic dataset)
+This project showcases **Gradient Boosted Models (GBMs)** — including **XGBoost**, **LightGBM**, and **CatBoost** — for both **binary** and **multiclass** classification problems.
 
-The notebook benchmarks **XGBoost**, **LightGBM**, and **CatBoost** across all three tasks, covering metrics, threshold tuning, calibration, feature importance, and SHAP explainability.
+It includes complete evaluation pipelines: cross-validation, ROC/PR curves, confusion matrices, calibration, and interpretability using **SHAP** and **Permutation Importance**.
 
 ---
 
-## 🚀 Key Features
-- 5-Fold Cross-Validation (Accuracy, Precision, Recall, F1, ROC-AUC)
-- GPU acceleration for all models (`tree_method="gpu_hist"`, `device="gpu"`)
-- **Threshold tuning** (F1-max, Youden’s J, Cost-min)
-- **Calibration curves**, **ROC/PR curves**, **Permutation importance**
-- **SHAP summaries** for explainability
-- Binary, multiclass, and multilabel benchmarks with comparative results
+## 🚀 Key Highlights
+- Implemented and compared **XGBoost**, **LightGBM**, and **CatBoost**
+- Covers both **Binary** and **Multiclass** classification tasks
+- 5-Fold CV with metrics: Accuracy, Precision, Recall, F1, ROC-AUC
+- **Threshold tuning** and **probability calibration**
+- **Feature importance** & **SHAP explainability**
+- GPU acceleration enabled (`tree_method='gpu_hist'`, `device='gpu'`)
 
 ---
 
-## 📊 Binary Classification (Breast Cancer)
+## 📊 Binary Classification Results
 
-| Model | Accuracy | Precision | Recall | F1 | ROC AUC |
-|:------|:---------:|:----------:|:------:|:------:|
-| **XGBoost** | 0.970 ± 0.012 | 0.973 ± 0.023 | 0.980 ± 0.011 | 0.976 ± 0.009 | 0.994 ± 0.005 |
-| **LightGBM** | 0.968 ± 0.020 | 0.965 ± 0.027 | 0.986 ± 0.015 | 0.975 ± 0.016 | 0.992 ± 0.007 |
-| **CatBoost** | 0.965 ± 0.019 | 0.962 ± 0.027 | 0.983 ± 0.011 | 0.972 ± 0.015 | 0.995 ± 0.004 |
-
-✅ **Optimal Thresholds (XGBoost):**
-- F1-max → 0.395  
-- J-max → 0.533  
-- Cost-min → 0.395  
+### Confusion Matrices
+![Confusion Matrix — XGBoost](confusion_matrix_xgboost.png)
+![Confusion Matrix — LightGBM](confusion_matrix_GBM.png)
+![Confusion Matrix — CatBoost](confusion_matrix_catboost.png)
+![Confusion Matrix — Binary](confusion_matrix_binary.png)
 
 ---
 
-### Binary Visuals
-![Confusion Matrix](Confusionmatrixbinary.png)
-![ROC/PR Curves](ROC_PRcurveXGboost_binary.png)
-![ROC/PR Optima](ROC_PRcurve_optima.png)
-![Threshold Tuning](threshold_binary.png)
-![Calibration Curve](calibrationcurve_binary.png)
-![Feature Importance](topfeatureimp_binary.png)
-![Permutation Importance](permutationimp_binary.png)
-![SHAP Summary](SHAP_binary.png)
+### ROC & PR Curves
+![ROC Curve — XGBoost](ROC_curve_xgboost.png)
+![ROC Curve — LightGBM](ROC_PR_Curve_GBM.png)
+![ROC Curve — CatBoost](ROC_curve_catboost.png)
+![ROC Curve — Binary](ROC_curve_binary.png)
+
+![PR Curve — XGBoost](PR_curve_xgboost.png)
+![PR Curve — Multiclass](PR_curve_multiclass.png)
+![PR Curve — CatBoost](PR_curve_multiclass_catboost.png)
 
 ---
 
-## 🌈 Multiclass Classification (Iris)
-
-| Model | Accuracy | F1 Macro |
-|:------|:---------:|:--------:|
-| **XGBoost** | 0.940 ± 0.033 | 0.939 ± 0.034 |
-| **LightGBM** | 0.953 ± 0.034 | 0.953 ± 0.035 |
-| **CatBoost** | 0.960 ± 0.025 | 0.960 ± 0.025 |
-
-![Confusion Matrix (Multiclass)](confusionmatrix_multiclass.png)
-![ROC Curves (OvR)](roccurve_multiclass.png)
-![PR Curves (OvR)](prcurve_multiclass.png)
+### Calibration Curves
+![Calibration Curve — Binary](calibration_curve_binary.png)
+![Calibration Curve — CatBoost](calibration_curve_catboost.png)
+![Calibration Curve — LightGBM](calibration_curve_GBM.png)
 
 ---
 
-## 🧩 Multilabel Classification (Synthetic)
+## 🌈 Multiclass Classification Results
 
-| Model | Subset Accuracy | Hamming Loss | Jaccard (Micro) |
-|:------|:----------------:|:-------------:|:----------------:|
-| **XGBoost** | 0.421 | 0.181 | 0.546 |
-| **LightGBM** | 0.405 | 0.184 | 0.539 |
-| **CatBoost** | 0.422 | 0.179 | 0.540 |
+### Confusion Matrices
+![Confusion Matrix — Multiclass (XGBoost)](confusion_matrix_multiclass_xgboost.png)
+![Confusion Matrix — Multiclass (CatBoost)](confusion_matrix_multiclass_catboost.png)
+![Confusion Matrix — Multiclass (General)](confusion_matrix_multiclass.png)
 
-![Confusion Matrix (Multilabel)](confusionmatrix_multilabel.png)
-![Feature Importance (Multilabel)](featureimportance_multilabel.png)
+---
+
+### ROC & PR Curves (Multiclass)
+![ROC Curve — Multiclass (XGBoost)](roc_curve_multiclass.png)
+![ROC Curve — Multiclass (CatBoost)](roc_curve_multiclass_catboost.png)
+![PR Curve — Multiclass (CatBoost)](PR_curve_multiclass_catboost.png)
 
 ---
 
 ## 💡 Insights
-- **XGBoost** yields the best calibration and recall stability.  
-- **LightGBM** converges faster with efficient GPU usage.  
-- **CatBoost** excels in handling categorical and imbalanced data.  
-- SHAP confirms consistent feature importance across models (e.g., mean radius, worst area).
+- **XGBoost** performs best in recall and ROC-AUC.
+- **LightGBM** provides faster convergence on GPU.
+- **CatBoost** handles categorical features smoothly with strong calibration.
+- Model performance remains consistent across folds.
 
 ---
 
-## 🔮 Future Enhancements
-- Add **ensemble stacking** across GBMs.  
-- Integrate **Optuna/Bayesian tuning** for hyperparameter optimization.  
-- Extend SHAP interpretation to **multilabel outputs**.  
+## 🧩 Future Enhancements
+- Add **Optuna tuning** for automated hyperparameter search  
+- Integrate **SHAP interaction values** for feature synergy analysis  
+- Add **ensemble stacking** combining XGBoost + CatBoost  
+
+---
+
+## ⚙️ Dependencies
+Refer to `requirements.txt` for all dependencies.
 
 ---
 
@@ -95,3 +88,4 @@ The notebook benchmarks **XGBoost**, **LightGBM**, and **CatBoost** across all t
 
 ## 📜 License
 MIT License
+
