@@ -41,7 +41,7 @@ It includes complete evaluation pipelines: cross-validation, ROC/PR curves, conf
 ### Calibration Curves
 ![Calibration Curve — Binary](calibration_curve_binary.png)
 ![Calibration Curve — CatBoost](calibration_curve_catboost.png)
-![Calibration Curve — LightGBM](calibration_curve_GBM.png)
+![Calibration Curve — LightGBM](callibration_curve_GBM.png)
 
 ---
 
