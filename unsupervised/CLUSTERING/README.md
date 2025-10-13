@@ -43,7 +43,7 @@ It includes **K-Means, Hierarchial (Ward & Agglomerative-Complete), DBSCAN, Gaus
 ![t-SNE — Hierarchial (Ward)](tsne_2d_hierarchial_ward.png)
 
 ### Silhouette & Confusion Heatmap (Ward)
-![Silhouette — Hierarchial (Ward)](silhouette_hierarchial_ward.png)  
+![Silhouette — Hierarchial (Ward)](silhoutte_hierarchial_ward.png)  
 ![Confusion Heatmap — Hierarchial](confusion_heatmap_hierarchial.png)
 
 ### Agglomerative (Complete): PCA/t-SNE, Silhouette, Heatmap, Sizes
