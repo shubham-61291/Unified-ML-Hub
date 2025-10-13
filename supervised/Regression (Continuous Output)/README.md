@@ -1,7 +1,7 @@
 # 📈 Regression (Continuous Output) — All Models Overview
 
 A unified collection of **supervised regression models** implemented by **Shubham Singh**, covering Linear, Non-linear, and Ensemble-based approaches.  
-Each model folder contains full pipelines — from data preprocessing, training, and validation to visualization and explainability.
+Each model folder includes complete pipelines — from preprocessing and training to visualization and explainability.
 
 ---
 
@@ -29,69 +29,79 @@ Each model folder contains full pipelines — from data preprocessing, training,
 # ⚡ Gradient Boosted Regression Trees (GBRT)
 
 The **Gradient Boosted Regression Trees** ensemble model combines weak learners sequentially to minimize prediction error.  
-Implemented with XGBoost, LightGBM, and CatBoost frameworks.
+Implemented using **LightGBM (GPU)** on the California Housing dataset.
 
 ---
 
 ## 🚀 Key Highlights
-✅ End-to-end pipeline with train-test split and CV  
-✅ Comparison of multiple boosting frameworks  
-✅ Feature importance, SHAP, and residual analysis  
-✅ Metrics: MAE, RMSE, R², and Adjusted R²  
+✅ Early stopping and hyperparameter optimization  
+✅ RandomizedSearchCV + GridSearchCV tuning  
+✅ Full diagnostics: MSE, RMSE, MAE, R², Adjusted R²  
+✅ Feature importance, PDP/ICE, and SHAP explainability  
 
 ---
 
-## 📊 Model Results
-### Prediction Scatter
-![Prediction vs Actual](./Gradient%20Boosted%20Regression%20Trees/pred_vs_actual_gbrt.png)
+## 📈 Learning Curves
+![Learning Curve - Early Stop](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Gradient%20Boosted%20Regression%20Trees/learningcurve.png?raw=true)
+![Learning Curve - Random Search](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Gradient%20Boosted%20Regression%20Trees/learningcurveRSmodel.png?raw=true)
+![Learning Curve - Grid Search](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Gradient%20Boosted%20Regression%20Trees/leaarningcurve_bestgridmodel.png?raw=true)
 
-### Residual Analysis
-![Residual Plot](./Gradient%20Boosted%20Regression%20Trees/residual_plot_gbrt.png)
+---
 
-### Feature Importance
-![Feature Importance](./Gradient%20Boosted%20Regression%20Trees/feature_importance_gbrt.png)
+## 📉 Residual Diagnostics
+![Validation Residuals](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Gradient%20Boosted%20Regression%20Trees/residual_validationbest.png?raw=true)
+![Test Residuals](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Gradient%20Boosted%20Regression%20Trees/residual_testbest.png?raw=true)
+
+---
+
+## 🔍 Prediction Fit
+![Validation Fit](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Gradient%20Boosted%20Regression%20Trees/actualvspredicted_validationbest.png?raw=true)
+![Test Fit](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Gradient%20Boosted%20Regression%20Trees/actualvspredicted_testbest.png?raw=true)
+
+---
+
+## 🌿 Feature Importance & Explainability
+![Top Features](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Gradient%20Boosted%20Regression%20Trees/top2features.png?raw=true)
+![PDP + ICE](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Gradient%20Boosted%20Regression%20Trees/pdp_ice_bestgrid_topfeatures.png?raw=true)
+![SHAP Global](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Gradient%20Boosted%20Regression%20Trees/SHAPvalue.png?raw=true)
+![Local SHAP](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Gradient%20Boosted%20Regression%20Trees/localshaptest.png?raw=true)
 
 ---
 
 ## 💡 Insights
-- Gradient boosting models outperform traditional regressors.
-- Feature-level interpretability available via SHAP.
-- CatBoost provides superior handling of categorical data.
+- Early stopping stabilized training near 1871 trees.  
+- Median income & house age dominate predictive contribution.  
+- Grid refinement achieved best R² ≈ 0.86.
 
 ---
-
 
 ---
 
 # 📉 Linear Regression
 
-The **Linear Regression** model estimates the relationship between dependent and independent variables by minimizing squared errors.
+Performs a classic **Ordinary Least Squares** regression on the California Housing dataset, benchmarking model simplicity and interpretability.
 
 ---
 
-## 🚀 Key Highlights
-✅ Includes baseline regression metrics and diagnostics  
-✅ Normality, heteroscedasticity, and residual tests  
-✅ Coefficient interpretation and feature importance  
+## 🚀 Key Features
+✅ Automated pipeline using Scikit-learn  
+✅ Multiple evaluation metrics (MSE, RMSE, MAE, R²)  
+✅ Residual and prediction distribution visualization  
 
 ---
 
-## 📊 Model Results
-### Predicted vs Actual
-![Predicted vs Actual](./Linear%20Regression/predicted_vs_actual.png)
-
-### Residual Analysis
-![Residuals](./Linear%20Regression/residual_plot.png)
-
-### Feature Coefficients
-![Coefficients](./Linear%20Regression/coefficients.png)
+## 📊 Visual Results
+![Metric Comparison](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Linear%20Regression/metric%20comparison.png?raw=true)
+![Predictions (Actual vs Predicted)](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Linear%20Regression/predictions.png?raw=true)
+![Residuals](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Linear%20Regression/residuals.png?raw=true)
+![Residual Distribution](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Linear%20Regression/residual%20distribution.png?raw=true)
 
 ---
 
 ## 💡 Insights
-- Ideal baseline for benchmarking other regressors.
-- Performs well on linearly separable continuous targets.
-- Residual plots indicate minimal bias and constant variance.
+- Strong linear baseline with R² ≈ 0.60  
+- Residuals centered around 0 — unbiased model  
+- Low variance, interpretable coefficients
 
 ---
 
@@ -100,68 +110,70 @@ The **Linear Regression** model estimates the relationship between dependent and
 
 # 🧠 Neural Networks (for continuous outputs)
 
-A deep learning approach using **Keras/TensorFlow**, capturing complex non-linear relationships between inputs and outputs.
+Implements **Deep Neural Network Regression** using TensorFlow/Keras with MC Dropout and Heteroscedastic modeling for uncertainty estimation.
 
 ---
 
 ## 🚀 Key Highlights
-✅ Uses dense feed-forward architecture  
-✅ Loss functions: MSE & MAE  
-✅ Early stopping and dropout regularization  
-✅ Performance visualization with learning curves  
+✅ Epistemic + Aleatoric uncertainty modeling  
+✅ GPU + mixed precision training  
+✅ Visual diagnostics: Loss, Residuals, and Prediction Fit  
 
 ---
 
-## 📊 Model Results
-### Learning Curve
-![Learning Curve](./Neural%20Networks%20(for%20continuous%20outputs)/learning_curve_nn.png)
+## 📈 Training Dynamics
+![Loss Curve (MC Dropout)](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Neural%20Networks%20(for%20continuous%20outputs)/LosscurveMCdropout.png?raw=true)
+![Learning Rate Schedule](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Neural%20Networks%20(for%20continuous%20outputs)/LRscheduleMCdropout.png?raw=true)
 
-### Loss Curve
-![Loss Curve](./Neural%20Networks%20(for%20continuous%20outputs)/loss_curve_nn.png)
+---
 
-### Prediction Scatter
-![Prediction vs Actual](./Neural%20Networks%20(for%20continuous%20outputs)/prediction_vs_actual_nn.png)
+## 📉 Residual Diagnostics
+![Residual Validation](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Neural%20Networks%20(for%20continuous%20outputs)/residual_validation.png?raw=true)
+![Residual Test](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Neural%20Networks%20(for%20continuous%20outputs)/residual_test.png?raw=true)
+
+---
+
+## 🔍 Prediction Fit
+![Validation Fit](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Neural%20Networks%20(for%20continuous%20outputs)/actualvspredicted_validation.png?raw=true)
+![Test Fit](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Neural%20Networks%20(for%20continuous%20outputs)/actualvspredicted_test.png?raw=true)
 
 ---
 
 ## 💡 Insights
-- Outperforms simpler regressors on complex datasets.
-- Dropout effectively prevents overfitting.
-- Best for capturing nonlinear dependencies.
+- MC Dropout captures epistemic uncertainty effectively.  
+- Heteroscedastic NN improves aleatoric variance modeling.  
+- Smooth loss curves indicate stable convergence.
 
 ---
+
 
 ---
 
 # 📊 Polynomial Regression
 
-Extends Linear Regression by fitting polynomial features of input variables, capturing curvature and nonlinear patterns.
+Extends linear regression by fitting polynomial relationships between median income and housing prices.
 
 ---
 
 ## 🚀 Key Highlights
-✅ Pipeline: Polynomial feature expansion + Linear model  
-✅ Includes MAE, RMSE, R², and residual analysis  
-✅ Comparison of degree-based fits  
+✅ Polynomial degree 1–4 comparison  
+✅ Adjusted R² used for degree selection  
+✅ Evaluation across validation, test, and CV splits  
 
 ---
 
-## 📊 Model Results
-### Polynomial Fit (Degree 2 vs 3)
-![Polynomial Fit](./Polynomial%20Regression/polynomial_fit_comparison.png)
-
-### Residual Plot
-![Residual Plot](./Polynomial%20Regression/residual_plot_poly.png)
-
-### Learning Curve
-![Learning Curve](./Polynomial%20Regression/learning_curve_poly.png)
+## 📈 Visual Results
+![MSE Comparison](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Polynomial%20Regression/MSE.png?raw=true)
+![R² Comparison](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Polynomial%20Regression/R2.png?raw=true)
+![Learning Curve](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Polynomial%20Regression/learning%20curve.png?raw=true)
+![Residual Distribution](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Polynomial%20Regression/residual%20distribution.png?raw=true)
 
 ---
 
 ## 💡 Insights
-- Performs best with moderate degree (2–3).  
-- High degrees risk overfitting; validated via CV.  
-- Demonstrates non-linear flexibility with interpretability.
+- Degree 4 polynomial achieved best generalization.  
+- Captures mild nonlinearity while avoiding overfitting.  
+- Ideal for moderate feature–target curvatures.
 
 ---
 
@@ -170,34 +182,30 @@ Extends Linear Regression by fitting polynomial features of input variables, cap
 
 # 🧩 Ridge, Lasso & ElasticNet Regression
 
-Regularized linear models addressing overfitting and multicollinearity.  
-Each method applies different penalties to control coefficient magnitude.
+Regularized linear regressors controlling overfitting and multicollinearity using L1 and L2 penalties.
 
 ---
 
 ## 🚀 Key Highlights
-✅ Ridge (L2), Lasso (L1), ElasticNet (L1+L2) implemented  
-✅ CV-based alpha tuning with metrics comparison  
-✅ Feature selection visualization for Lasso  
+✅ Ridge, Lasso & ElasticNet with α tuning  
+✅ Coefficient path visualization  
+✅ ElasticNet heatmap and residual comparison  
 
 ---
 
-## 📊 Model Results
-### Feature Importance
-![Feature Importance](./Ridge_lasso/feature_importance_ridge.png)
-
-### Coefficient Paths
-![Coefficient Paths](./Ridge_lasso/coef_path_lasso.png)
-
-### Residual Plot
-![Residual Plot](./Ridge_lasso/residual_plot_ridge.png)
+## 📈 Visual Results
+![R² Comparison](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Ridge_lasso/R2%20comparison.png?raw=true)
+![RMSE Comparison](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Ridge_lasso/RMSE%20comparison.png?raw=true)
+![Coefficient Paths](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Ridge_lasso/Coefficientpaths_LASSO.png?raw=true)
+![Residual Plot](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Ridge_lasso/ridge_residual.png?raw=true)
+![Feature Importance Ridge](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/Ridge_lasso/feature_importance_ridge.png?raw=true)
 
 ---
 
 ## 💡 Insights
-- **Ridge:** Stabilizes coefficients for correlated features.  
-- **Lasso:** Performs feature selection via shrinkage.  
-- **ElasticNet:** Balances both penalties for hybrid control.  
+- Ridge Regression (α≈6.25) achieved optimal bias–variance balance.  
+- Lasso performed automatic feature selection.  
+- ElasticNet blended both regularizations effectively.
 
 ---
 
