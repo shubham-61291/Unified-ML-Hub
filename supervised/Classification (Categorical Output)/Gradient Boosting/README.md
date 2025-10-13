@@ -48,7 +48,7 @@ It includes complete evaluation pipelines: cross-validation, ROC/PR curves, conf
 ## 🌈 Multiclass Classification Results
 
 ### Confusion Matrices
-![Confusion Matrix — Multiclass (XGBoost)](confusion_matrix_multiclass_xgboost.png)
+![Confusion Matrix — Multiclass (XGBoost)](confusion_matrix_xgboost.png)
 ![Confusion Matrix — Multiclass (CatBoost)](confusion_matrix_multiclass_catboost.png)
 ![Confusion Matrix — Multiclass (General)](confusion_matrix_multiclass.png)
 
