@@ -17,7 +17,7 @@ This project demonstrates its application on **Binary**, **Multiclass**, and **M
 ## 📊 Binary Classification (Breast Cancer Dataset)
 
 ### Confusion Matrix  
-![Confusion Matrix — Binary](Confusion_matrix_binary.png)
+![Confusion Matrix — Binary](confusion_matrix_binary.png)
 
 ### ROC & PR Curves  
 ![ROC-PR Curve — Binary](ROC_PR_Curve_binary.png)  
