@@ -30,7 +30,7 @@ This project demonstrates its application on **Binary**, **Multiclass**, and **M
 ![Calibration Curve — Binary](Calibration_curve_binary.png)
 
 ### k-vs-Error Curve  
-![k vs Error — Binary](Kserror_binary.png)
+![k vs Error — Binary](Kvserror_binary.png)
 
 ---
 
