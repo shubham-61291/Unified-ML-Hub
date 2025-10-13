@@ -37,7 +37,7 @@ This project demonstrates its application on **Binary**, **Multiclass**, and **M
 ## 🌈 Multiclass Classification (Iris Dataset)
 
 ### Confusion Matrix  
-![Confusion Matrix — Multiclass](Confusion_Matrix_multiclass.png)
+![Confusion Matrix — Multiclass](Confusion_matrix_multiclass.png)
 
 ### ROC & PR Curves  
 ![ROC Curve — Multiclass](ROC_curve_multiclass.png)  
