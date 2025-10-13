@@ -12,7 +12,7 @@ The models learn to generalize this mapping for predictions on unseen data.
 |-----------|-------------|--------------|
 | 🧠 **Classification** | Predicts **categorical outputs** (binary, multiclass, or multilabel). Includes Logistic Regression, SVM, Random Forest, Gradient Boosting, and Neural Networks. | [Open Classification Folder](https://github.com/shubham-61291/Unified-ML-Hub/tree/main/supervised/Classification%20(Categorical%20Output)) |
 | 📈 **Regression** | Predicts **continuous outputs** such as prices, quantities, or numerical scores. Includes Linear, Polynomial, Ridge/Lasso/ElasticNet, GBRT, and Neural Network Regression. | [Open Regression Folder](https://github.com/shubham-61291/Unified-ML-Hub/tree/main/supervised/Regression%20(Continuous%20Output)) |
-| 🎯 **Ranking (Learning-to-Rank)** | Orders items by **relevance or preference**. Includes Pointwise, Pairwise, Listwise, LambdaMART, and Neural Ranking models. | [Open Ranking Folder](https://github.com/shubham-61291/Unified-ML-Hub/tree/main/supervised/Ranking%20(Learning-to-Rank%20Output)) |
+| 🎯 **Ranking (Learning-to-Rank)** | Orders items by **relevance or preference**. Includes Pointwise, Pairwise, Listwise, LambdaMART, and Neural Ranking models. | [Open Ranking Folder](https://github.com/shubham-61291/Unified-ML-Hub/tree/main/supervised/RANKING)) |
 
 ---
 
@@ -38,7 +38,7 @@ Includes both linear and non-linear models, ensemble regressors, and deep neural
 Implements **ranking models** used in recommendation systems, search engines, and relevance prediction.  
 Covers Pointwise, Pairwise, and Listwise frameworks, as well as advanced methods like LambdaRank and Deep ListNet.  
 
-🔗 [View Full Ranking README](https://github.com/shubham-61291/Unified-ML-Hub/tree/main/supervised/Ranking%20(Learning-to-Rank%20Output))
+🔗 [View Full Ranking README](https://github.com/shubham-61291/Unified-ML-Hub/tree/main/supervised/RANKING))
 
 ---
 
