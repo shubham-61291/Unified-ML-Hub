@@ -42,7 +42,7 @@ It includes complete visual analysis — ROC, PR, Threshold Tuning, and Comparat
 ![PR Curve — Isolation Forest](precission_recall_curve_isolation_forest.png)
 
 ### Threshold Optimization  
-![Threshold Optimization — Isolation Forest](isolation_forest_threshold_optimization.png)
+![Threshold Optimization — Isolation Forest](isolated_forest_threshold_optimization.png)
 
 ### Score Distribution  
 ![Score Distribution — Isolation Forest](isolation_forest_score_distribution.png)
