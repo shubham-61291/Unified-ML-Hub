@@ -22,7 +22,7 @@ The models learn to generalize this mapping for predictions on unseen data.
 Contains implementations of **8 classification algorithms**, covering binary, multiclass, and multilabel prediction tasks.  
 Each model is evaluated with confusion matrices, ROC curves, feature importance plots, and SHAP explainability.  
 
-🔗 [View Full Classification README](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Classification%20(Categorical%20Output)/README.md)
+🔗 [View Full Classification README](https://github.com/shubham-61291/Unified-ML-Hub/tree/main/supervised/Classification%20(Categorical%20Output))
 
 ---
 
@@ -30,7 +30,7 @@ Each model is evaluated with confusion matrices, ROC curves, feature importance 
 Comprehensive coverage of **regression algorithms** for continuous prediction problems.  
 Includes both linear and non-linear models, ensemble regressors, and deep neural approaches — each with performance metrics, residual analysis, and learning curves.  
 
-🔗 [View Full Regression README](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Regression%20(Continuous%20Output)/README.md)
+🔗 [View Full Regression README](https://github.com/shubham-61291/Unified-ML-Hub/tree/main/supervised/Regression%20(Continuous%20Output))
 
 ---
 
@@ -38,7 +38,7 @@ Includes both linear and non-linear models, ensemble regressors, and deep neural
 Implements **ranking models** used in recommendation systems, search engines, and relevance prediction.  
 Covers Pointwise, Pairwise, and Listwise frameworks, as well as advanced methods like LambdaRank and Deep ListNet.  
 
-🔗 [View Full Ranking README](https://github.com/shubham-61291/Unified-ML-Hub/blob/main/supervised/Ranking%20(Learning-to-Rank%20Output)/README.md)
+🔗 [View Full Ranking README](https://github.com/shubham-61291/Unified-ML-Hub/tree/main/supervised/Ranking%20(Learning-to-Rank%20Output))
 
 ---
 
