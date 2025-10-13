@@ -1,4 +1,6 @@
-Linear Regression (California Housing) 📖 Overview
+Linear Regression (California Housing) 
+
+📖 Overview
 The Linear Regression (California Housing) project demonstrates supervised learning using a regression approach on the California Housing dataset. It compares performance across Train/Validation/Test splits and 5-Fold Cross-Validation while visualizing residuals, predictions, and error distributions.
 
 🚀 Key Features
