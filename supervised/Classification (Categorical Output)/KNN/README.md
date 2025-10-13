@@ -55,7 +55,7 @@ This project demonstrates its application on **Binary**, **Multiclass**, and **M
 
 ### ROC Curves  
 ![ROC Curve — Multilabel](ROC_curve_multilabel.png)  
-![ROC Curve — Multilabel Label 2](ROC_curve_multilabel_label_2.png)  
+![ROC Curve — Multilabel Label 2](ROC_curve_multilabel_abel_2.png)  
 ![ROC Curve — Multilabel Fork9](ROC_curve_multilabel_fork9.png)
 
 ### PR Curves  
