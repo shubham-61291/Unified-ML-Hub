@@ -1,62 +1,88 @@
-Linear Regression (California Housing) 
+# Linear Regression Baseline
 
-📖 Overview
-The Linear Regression (California Housing) project demonstrates supervised learning using a regression approach on the California Housing dataset. It compares performance across Train/Validation/Test splits and 5-Fold Cross-Validation while visualizing residuals, predictions, and error distributions.
+> Implementation notes for the code and artifacts currently stored in this directory.
 
-🚀 Key Features
-✅ Regression task predicting continuous housing prices.
-✅ Comparison across Validation, Test, and Cross-Validation folds.
-✅ Multiple evaluation metrics: MSE, RMSE, MAE, R², Adjusted R².
-✅ Rich visual analysis: residuals, predictions, and distribution plots.
-✅ Fully automated Scikit-learn pipeline.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-🛠 Tech Stack
-Framework: Scikit-learn
-Dataset: California Housing
-Libraries: NumPy, Matplotlib, Seaborn, Scikit-learn
-Model: LinearRegression()
-Metrics: MSE, RMSE, MAE, R², Adjusted R²
+## Overview
 
-📂 Project Structure
-linear_regression/
-│── linear_regression.py # Core model training and evaluation script
-│── metric comparison.png # Validation vs Test vs CV bar plot
-│── predictions.png # Actual vs predicted comparison
-│── residual distribution.png # Distribution of residuals
-│── residuals.png # Validation & Test residual plots
-│── residuals CV 1st fold.png # Residuals for first CV fold
-│── README.md # Documentation
-│── requirements.txt # Dependencies
+A baseline regression implementation comparing holdout and five-fold cross-validation metrics with actual-versus-predicted, residual and metric-comparison plots.
 
-📊 Results Summary
-Validation → MSE: 0.5409, RMSE: 0.7354, MAE: 0.5335, R²: 0.5848, Adjusted R²: 0.5838
-Test → MSE: 0.5203, RMSE: 0.7213, MAE: 0.5210, R²: 0.6066, Adjusted R²: 0.6055
-Cross-Validation (5-Fold Average) → MSE: 0.5306, RMSE: 0.7283, MAE: 0.5317, R²: 0.6014, Adjusted R²: 0.6006
+## Data and assumptions
 
+Scikit-learn California Housing dataset (`fetch_california_housing`); the first fetch may require an internet connection.
 
-## 📈 Metric Comparison
-![Metric Comparison](metric%20comparison.png)
+## Implemented workflow
 
-## 📉 Predictions (Actual vs Predicted)
-![Predictions (Actual vs Predicted)](predictions.png)
+- Ordinary least squares via `LinearRegression`
+- 70/15/15 train/validation/test split
+- Five-fold shuffled KFold evaluation
+- MSE, RMSE, MAE, R² and adjusted R²
 
-## 🔍 Residuals (Validation & Test)
-![Residuals (Validation & Test)](residuals.png)
+## Evaluation and artifacts
 
-## 📊 Residual Distribution
-![Residual Distribution](residual%20distribution.png)
+A simple reference model for the other California Housing regression experiments.
 
-## 🧩 Residuals – CV (1st Fold)
-![Residuals CV (1st Fold)](residuals%20CV%201st%20fold.png)
+The following result files are present in this directory (paths checked against the repository tree):
 
-🔮 Future Enhancements
-🔹 Add Polynomial Regression comparison.
-🔹 Integrate Ridge and Lasso Regression for regularization.
-🔹 Include feature importance visualization.
-🔹 Extend to Gradient Boosting and XGBoost regression.
+- [metric comparison.png](./metric%20comparison.png)
+- [predictions.png](./predictions.png)
+- [residuals.png](./residuals.png)
+- [residual distribution.png](./residual%20distribution.png)
+- [residuals CV 1st fold.png](./residuals%20CV%201st%20fold.png)
 
-👨‍💻 Author
-Shubham Singh
+### Selected visualizations
 
-📜 License
+![metric comparison.png](./metric%20comparison.png)
+
+![predictions.png](./predictions.png)
+
+![residuals.png](./residuals.png)
+
+![residual distribution.png](./residual%20distribution.png)
+
+## Run and dependencies
+
+- Implementation: [linear_regression.py](./linear_regression.py)
+- Dependencies: [requirements.txt](./requirements.txt)
+```bash
+pip install -r "requirements.txt"
+python "linear_regression.py"
+```
+
+## Limitations and reproducibility notes
+
+- This is a baseline fit; it does not establish causality.
+- The numeric metrics in the source README are historical results and are not re-executed as part of this documentation pass.
+
+## Author
+
+Shubham Kumar Singh
+
+## License
+
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
+
+```text
 MIT License
+
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
