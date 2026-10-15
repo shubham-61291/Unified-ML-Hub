@@ -1,76 +1,92 @@
-# 📘 Polynomial Regression (California Housing)
+# Polynomial Regression
 
-The Polynomial Regression project extends Linear Regression by modeling non-linear relationships between **median income** and **housing prices** from the **California Housing dataset**. It systematically evaluates polynomial degrees (1–4), identifies the optimal degree based on validation performance, and visualizes metrics, learning curves, and residual distributions.
+> Implementation notes for the code and artifacts currently stored in this directory.
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## 🚀 Key Features
-- Fits polynomial features of degree 1–4 using Scikit-learn Pipelines  
-- Evaluates Validation, Test, and Cross-Validation performance  
-- Metrics: MSE, RMSE, MAE, R², Adjusted R²  
-- Automatically selects the best polynomial degree (based on Adjusted R²)  
-- Provides comprehensive plots for interpretability  
+## Overview
 
----
+A single-feature polynomial regression comparison using a pipeline of feature expansion and linear regression, with degree selection and holdout/cross-validation reporting.
 
-## 🧰 Tech Stack
-- **Framework:** Scikit-learn  
-- **Dataset:** California Housing (Median Income Feature)  
-- **Libraries:** NumPy, Matplotlib, Seaborn, Scikit-learn  
-- **Model:** Linear Regression with PolynomialFeatures  
-- **Validation:** 70/15/15 split + 5-Fold Cross-Validation  
+## Data and assumptions
 
----
+Scikit-learn California Housing data. The script uses the median-income feature as the explanatory variable for the demonstration.
 
-## 📊 Results Summary
+## Implemented workflow
 
-| Degree | Validation (R²) | Test (R²) | Cross-Validation (R²) |
-|:------:|:----------------:|:----------:|:----------------------:|
-| 1 | 0.445 | 0.500 | 0.473 |
-| 2 | 0.448 | 0.507 | 0.478 |
-| 3 | 0.453 | 0.512 | 0.486 |
-| 4 | **0.453** | **0.512** | **0.486** |
+- PolynomialFeatures + LinearRegression pipeline
+- Candidate degrees 1 through 4
+- 70/15/15 split and five-fold shuffled KFold
+- MSE, RMSE, MAE, R² and adjusted R²
+- Actual-versus-predicted, learning curve and residual distribution
 
-✅ **Best Degree Selected (based on Validation Adjusted R²): 4**
+## Evaluation and artifacts
 
----
+Useful for studying nonlinear feature expansion and model-complexity trade-offs on a controlled regression setup.
 
-## 📈 Metric Comparison
-![MSE Comparison](MSE.png)
-![RMSE Comparison](RMSE.png)
-![MAE Comparison](MAE.png)
-![R² Comparison](R2.png)
-![Adjusted R² Comparison](adjr2.png)
+The following result files are present in this directory (paths checked against the repository tree):
 
----
+- [MSE.png](./MSE.png)
+- [RMSE.png](./RMSE.png)
+- [MAE.png](./MAE.png)
+- [R2.png](./R2.png)
+- [adjr2.png](./adjr2.png)
+- [actualvspredicted.png](./actualvspredicted.png)
+- [learning curve.png](./learning%20curve.png)
+- [residual distribution.png](./residual%20distribution.png)
 
-## 📉 Actual vs Predicted
-![Actual vs Predicted](actualvspredicted.png)
+### Selected visualizations
 
----
+![MSE.png](./MSE.png)
 
-## 📈 Learning Curve
-![Learning Curve](learning%20curve.png)
+![RMSE.png](./RMSE.png)
 
----
+![MAE.png](./MAE.png)
 
-## 📊 Residual Distribution
-![Residual Distribution](residual%20distribution.png)
+![R2.png](./R2.png)
 
----
+## Run and dependencies
 
-## 🔮 Future Enhancements
-- Add Ridge and Lasso Polynomial Regression for regularization  
-- Include model complexity vs. bias–variance analysis  
-- Extend to multi-feature polynomial modeling  
-- Implement degree selection via GridSearchCV  
+- Implementation: [polynomial_regression.py](./polynomial_regression.py)
+- Dependencies: [requirements.txt](./requirements.txt)
+```bash
+pip install -r "requirements.txt"
+python "polynomial_regression.py"
+```
 
----
+## Limitations and reproducibility notes
 
-## 👨‍💻 Author
-**Shubham Singh**
+- A univariate demonstration cannot represent all available housing predictors.
+- The script selects degree using validation adjusted R²; the holdout test results should be reserved for final reporting.
 
----
+## Author
 
-## 📜 License
+Shubham Kumar Singh
+
+## License
+
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
+
+```text
 MIT License
+
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
