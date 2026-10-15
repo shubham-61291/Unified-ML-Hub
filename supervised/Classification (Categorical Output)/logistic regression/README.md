@@ -1,94 +1,90 @@
-# ⚖️ Logistic Regression — Binary, Multiclass & Multilabel Classification
+# Logistic Regression Classification
 
-This project demonstrates **Logistic Regression** across **binary**, **multiclass**, and **multilabel** problems using scikit-learn.  
-It includes full coverage of evaluation techniques — confusion matrices, ROC/PR curves, optimal threshold tuning, and cost-based decision analysis.
+> Implementation notes for the code and artifacts currently stored in this directory.
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## 🚀 Key Highlights
-- **Binary Classification:** Breast Cancer dataset (sklearn)  
-  - 5-fold CV metrics + annotated ROC/PR curves  
-  - Precision–Recall–F1–Youden’s J–Cost tuning  
-  - Optimal threshold table for F1-max, J-max & Cost-min  
-- **Multiclass Classification:** Iris dataset  
-  - One-vs-Rest (OvR) ROC plots per class + CV metrics  
-- **Multilabel Classification:** Synthetic dataset  
-  - One-vs-Rest (Logistic Regression) with global metrics (Hamming Loss, Jaccard, Subset Accuracy)
+## Overview
 
----
+A baseline statistical classifier implemented for binary, multiclass and multilabel examples, with standardized numeric input, cross-validation and decision-threshold analysis.
 
-## 📊 Binary Classification Results (Sklearn Breast Cancer)
+## Data and assumptions
 
-| Metric | Mean ± SD (5-fold CV) |
-|:-------|:---------------------:|
-| Accuracy | 0.974 ± 0.017 |
-| Precision | 0.968 ± 0.029 |
-| Recall | 0.992 ± 0.011 |
-| F1 | 0.979 ± 0.013 |
-| ROC AUC | 0.995 ± 0.006 |
+Scikit-learn Breast Cancer and Iris datasets, plus a generated multilabel classification dataset.
 
-✅ **Best Threshold (F1-max): t ≈ 0.35** → F1 = 0.991  J = 0.969  Cost = 2  
+## Implemented workflow
 
----
+- LogisticRegression with an lbfgs solver in the binary example
+- StandardScaler for binary inputs
+- Stratified five-fold cross-validation
+- F1/Youden’s-J/cost threshold sweeps, ROC/PR and confusion matrices
 
-## 📈 Evaluation Visuals
+## Evaluation and artifacts
 
-### 🔹 Binary Confusion Matrix  
-![Binary Confusion Matrix](ConfusionMatrix.png)
+Provides a comparatively interpretable reference point for the other classification algorithms in this repository.
 
-### 🔹 ROC & PR Curves (annotated thresholds)  
-![ROC Curve](ROC_PRcurve.png)  
-![Optimized ROC PR Curves](ROC_PR_optimacurve.png)
+The following result files are present in this directory (paths checked against the repository tree):
 
-### 🔹 Threshold Tuning Curve  
-![Threshold Tuning](thresholdtuning.png)
+- [ConfusionMatrix.png](./ConfusionMatrix.png)
+- [ROC_PRcurve.png](./ROC_PRcurve.png)
+- [ROC_PR_optimacurve.png](./ROC_PR_optimacurve.png)
+- [thresholdtuning.png](./thresholdtuning.png)
+- [confusion_matrixmulticlass.png](./confusion_matrixmulticlass.png)
+- [roc_curve_multiclass.png](./roc_curve_multiclass.png)
+- [confusionmatrix_multilabel.png](./confusionmatrix_multilabel.png)
 
----
+### Selected visualizations
 
-## 🌈 Multiclass Classification — Iris Dataset
+![ConfusionMatrix.png](./ConfusionMatrix.png)
 
-| Metric | Mean ± SD (5-fold CV) |
-|:-------|:---------------------:|
-| Accuracy | 0.960 ± 0.039 |
-| F1 Macro | 0.960 ± 0.039 |
-| F1 Micro | 0.960 ± 0.039 |
-| Log Loss | −0.150 ± 0.036 |
+![ROC_PRcurve.png](./ROC_PRcurve.png)
 
-![Multiclass Confusion Matrix](confusion_matrixmulticlass.png)  
-![Multiclass ROC Curves (OvR)](roc_curve_multiclass.png)
+![ROC_PR_optimacurve.png](./ROC_PR_optimacurve.png)
 
----
+![thresholdtuning.png](./thresholdtuning.png)
 
-## 🧩 Multilabel Classification — Synthetic Dataset
+## Run and dependencies
 
-| Metric | Value |
-|:-------|:------:|
-| Subset Accuracy | 0.416 |
-| Hamming Loss | 0.187 |
-| Jaccard (Micro) | 0.581 |
+- Implementation: [logistic_regression.py](./logistic_regression.py)
+- Dependencies: [requirements.txt](./requirements.txt)
+```bash
+pip install -r "requirements.txt"
+python "logistic_regression.py"
+```
 
-![Multilabel Confusion Matrix (Label 0)](confusionmatrix_multilabel.png)
+## Limitations and reproducibility notes
 
----
+- Threshold selection is a decision-policy step; it does not change the underlying probability model.
+- The cost-minimization threshold depends on the costs configured in the script.
 
-## 💡 Insights
-- **Threshold tuning** offers interpretability across cost trade-offs.  
-- **Multiclass ROC plots** enable per-class separability visualization.  
-- **Multilabel setup** showcases logistic regression scalability using One-vs-Rest.  
+## Author
 
----
+Shubham Kumar Singh
 
-## 🔮 Future Enhancements
-- Integrate **calibration curves** (Platt scaling / isotonic).  
-- Compare with **SVM** and **ElasticNet-penalized logistic** models.  
-- Extend to **probability cost functions** for business risk alignment.
+## License
 
----
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
-## 👨‍💻 Author
-**Shubham Singh**
-
----
-
-## 📜 License
+```text
 MIT License
+
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
