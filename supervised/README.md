@@ -1,60 +1,56 @@
-# 🤖 Supervised Learning — Complete Model Collection
+# Supervised Learning
 
-This section of the repository presents the **complete suite of supervised learning algorithms**, implemented and documented by **Shubham Singh**.  
-Supervised learning is based on training models using **labeled datasets**, where each input is paired with a known output.  
-The models learn to generalize this mapping for predictions on unseen data.
+> Navigation and practical notes for this repository layer.
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## 🧭 Structure Overview
+## Scope
 
-| Category | Description | Folder Link |
-|-----------|-------------|--------------|
-| 🧠 **Classification** | Predicts **categorical outputs** (binary, multiclass, or multilabel). Includes Logistic Regression, SVM, Random Forest, Gradient Boosting, and Neural Networks. | [Open Classification Folder](https://github.com/shubham-61291/Unified-ML-Hub/tree/main/supervised/Classification%20(Categorical%20Output)) |
-| 📈 **Regression** | Predicts **continuous outputs** such as prices, quantities, or numerical scores. Includes Linear, Polynomial, Ridge/Lasso/ElasticNet, GBRT, and Neural Network Regression. | [Open Regression Folder](https://github.com/shubham-61291/Unified-ML-Hub/tree/main/supervised/Regression%20(Continuous%20Output)) |
-| 🎯 **Ranking (Learning-to-Rank)** | Orders items by **relevance or preference**. Includes Pointwise, Pairwise, Listwise, LambdaMART, and Neural Ranking models. | [Open Ranking Folder](https://github.com/shubham-61291/Unified-ML-Hub/tree/main/supervised/RANKING)) |
+This layer groups implementations trained against labeled examples. Use the category README to select a task family, then the algorithm-level README for its script, dependencies, assets and caveats.
 
----
+## Subdirectories
 
-## 📚 Detailed ReadMe Access
+| Directory | Scope | README |
+|---|---|---|
+| **Classification (Categorical Output)** | Categorical prediction: binary, multiclass and multilabel classifiers. | [Open README](./Classification%20%28Categorical%20Output%29/README.md) |
+| **Regression (Continuous Output)** | Continuous-target prediction and model regularization. | [Open README](./Regression%20%28Continuous%20Output%29/README.md) |
+| **RANKING** | Learning-to-rank with classical, boosted and neural methods. | [Open README](./RANKING/README.md) |
 
-### 🧠 Classification (Categorical Output)
-Contains implementations of **8 classification algorithms**, covering binary, multiclass, and multilabel prediction tasks.  
-Each model is evaluated with confusion matrices, ROC curves, feature importance plots, and SHAP explainability.  
+## Working with a project
 
-🔗 [View Full Classification README](https://github.com/shubham-61291/Unified-ML-Hub/tree/main/supervised/Classification%20(Categorical%20Output))
+- Prefer the local `requirements.txt` rather than assuming a single environment will satisfy every algorithm.
+- Several files originated as notebook exports; check each algorithm README before choosing `python script.py` versus a notebook-compatible execution path.
+- Dataset downloads, optional GPU backends and version-specific estimator parameters may affect whether a script runs unchanged.
+- Treat included plots as historical artifacts unless you rerun the experiment with the same configuration.
 
----
+## Author
 
-### 📈 Regression (Continuous Output)
-Comprehensive coverage of **regression algorithms** for continuous prediction problems.  
-Includes both linear and non-linear models, ensemble regressors, and deep neural approaches — each with performance metrics, residual analysis, and learning curves.  
+Shubham Kumar Singh
 
-🔗 [View Full Regression README](https://github.com/shubham-61291/Unified-ML-Hub/tree/main/supervised/Regression%20(Continuous%20Output))
+## License
 
----
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
-### 🎯 Ranking (Learning-to-Rank Output)
-Implements **ranking models** used in recommendation systems, search engines, and relevance prediction.  
-Covers Pointwise, Pairwise, and Listwise frameworks, as well as advanced methods like LambdaRank and Deep ListNet.  
-
-🔗 [View Full Ranking README](https://github.com/shubham-61291/Unified-ML-Hub/tree/main/supervised/RANKING))
-
----
-
-## 📊 Summary Table
-
-| Task Type | Output Type | Example Algorithms | Common Metrics |
-|------------|--------------|--------------------|----------------|
-| **Classification** | Categorical Labels | Logistic Regression, Random Forest, XGBoost | Accuracy, F1-Score, AUC |
-| **Regression** | Continuous Values | Linear, GBRT, Neural Network Regression | MAE, RMSE, R² |
-| **Ranking** | Ordered Relevance | LambdaMART, ListNet, XGBoost Ranker | NDCG, MAP, Precision@K |
-
----
-
-## 👨‍💻 Author
-**Shubham Singh**
-
-## 📜 License
+```text
 MIT License
 
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
