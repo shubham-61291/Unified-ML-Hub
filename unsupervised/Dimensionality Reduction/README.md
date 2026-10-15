@@ -1,142 +1,92 @@
-# 🧩 Comprehensive Dimensionality Reduction — PCA, t-SNE, UMAP, Autoencoder, VAE, and More
+# Dimensionality Reduction: Linear, Manifold and Neural Methods
 
-This project implements **13 dimensionality reduction techniques** (linear, manifold, and neural) and evaluates them on the **Iris dataset** using both **internal** and **external metrics**.  
-It provides a full comparison suite with **2D visualizations**, **reconstruction errors**, **trustworthiness analysis**, and **confusion heatmaps** across methods.
+> Implementation notes for the code and artifacts currently stored in this directory.
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## 🚀 Key Highlights
-✅ 13 algorithms in one unified script  
-✅ Comparison across linear, manifold, and neural techniques  
-✅ Evaluation on clustering performance (Silhouette, ARI, NMI)  
-✅ Reconstruction error and trustworthiness visualized  
-✅ Autoencoder and VAE built from scratch with TensorFlow (custom train_step)  
-✅ Grid of all embeddings — both true-class and K-Means colored  
+## Overview
 
----
+A consolidated embedding comparison using linear decompositions, manifold-learning methods and neural autoencoders, evaluated through embedding visualizations, reconstruction diagnostics and downstream clustering.
 
-## 🧠 Techniques Implemented
-**Linear / Matrix Factorization:**  
-PCA • Kernel PCA • Sparse PCA • Truncated SVD • ICA • NMF • Factor Analysis  
+## Data and assumptions
 
-**Manifold / Non-Linear:**  
-t-SNE • UMAP • Isomap • Locally Linear Embedding (LLE) • MDS  
+Scikit-learn Iris dataset with ground-truth labels available for post-hoc external evaluation.
 
-**Neural:**  
-Autoencoder (AE) • Variational Autoencoder (VAE)
+## Implemented workflow
 
----
+- PCA, Kernel PCA, Sparse PCA, Truncated SVD, ICA, NMF and Factor Analysis
+- t-SNE, UMAP, Isomap, Locally Linear Embedding and MDS
+- Autoencoder and Variational Autoencoder
+- Explained variance, trustworthiness, reconstruction MSE, silhouette, ARI and NMI
 
-## 🧮 Core Evaluation Metrics
-| Category | Metrics |
-|-----------|----------|
-| **Internal** | Silhouette Score |
-| **External** | Adjusted Rand Index (ARI), Normalized Mutual Information (NMI) |
-| **Geometric** | Trustworthiness (for manifold learning) |
-| **Reconstruction** | Mean Squared Error (MSE) |
+## Evaluation and artifacts
 
----
+The stored plots support qualitative comparison; downstream cluster metrics depend on the embedding, clustering configuration and dataset.
 
-## 📊 Visual Outputs
+The following result files are present in this directory (paths checked against the repository tree):
 
-### 🔹 PCA
-![PCA 2D Projection](pca_2d_coloured_by_class.png)  
-![PCA Scree Plot](pca_screen_plot_cumulative_variance.png)  
-![Confusion Heatmap — PCA](confusion_heatmap_pca.png)
+- [dimensionality_reduction_side_by_side.png](./dimensionality_reduction_side_by_side.png)
+- [pca_2d_coloured_by_class.png](./pca_2d_coloured_by_class.png)
+- [pca_screen_plot_cumulative_variance.png](./pca_screen_plot_cumulative_variance.png)
+- [umap_2d_coloured_by_class.png](./umap_2d_coloured_by_class.png)
+- [autoencoder_2d_coloured_by_class.png](./autoencoder_2d_coloured_by_class.png)
+- [vae_2d_coloured_by_class.png](./vae_2d_coloured_by_class.png)
+- [reconstruction_error_comparison.png](./reconstruction_error_comparison.png)
+- [manifold_trustworthiness.png](./manifold_trustworthiness.png)
 
----
+### Selected visualizations
 
-### 🔹 t-SNE
-![t-SNE 2D Projection](tsne_2d_coloured_by_class.png)  
-![Confusion Heatmap — t-SNE](confusion_heatmap_tsne.png)
+![dimensionality_reduction_side_by_side.png](./dimensionality_reduction_side_by_side.png)
 
----
+![pca_2d_coloured_by_class.png](./pca_2d_coloured_by_class.png)
 
-### 🔹 UMAP
-![UMAP 2D Projection](umap_2d_coloured_by_class.png)  
-![Confusion Heatmap — UMAP](confusion_heatmap_umap.png)
+![pca_screen_plot_cumulative_variance.png](./pca_screen_plot_cumulative_variance.png)
 
----
+![umap_2d_coloured_by_class.png](./umap_2d_coloured_by_class.png)
 
-### 🔹 Isomap
-![Isomap 2D Projection](isomap_2d_coloured_by_class.png)
+## Run and dependencies
 
----
+- Implementation: [DIMENSIONALITY_REDUCTION.py](./DIMENSIONALITY_REDUCTION.py)
+- Dependencies: [requirements.txt](./requirements.txt)
+```bash
+pip install -r "requirements.txt"
+python "DIMENSIONALITY_REDUCTION.py"
+```
 
-### 🔹 Locally Linear Embedding (LLE)
-![LLE 2D Projection](lle_2d_coloured_by_class.png)
+## Limitations and reproducibility notes
 
----
+- The source implements 14 techniques when all listed methods are counted; the previous README stated 13 despite listing 14.
+- The repo includes results and a requirements file but no trained model checkpoint. Autoencoder/VAE training occurs in the script.
+- External clustering metrics use the Iris labels only for post-hoc evaluation; this is not supervised training of the embedding.
 
-### 🔹 MDS
-![MDS 2D Projection](mds_2d_coloured_by_class.png)  
-![Shepard Diagram — MDS](mds_shepard_diagram.png)
+## Author
 
----
+Shubham Kumar Singh
 
-### 🔹 Autoencoder (AE)
-![AE 2D Projection](autoencoder_2d_coloured_by_class.png)  
-![Confusion Heatmap — AE](confusion_heatmap_autoencoder.png)
+## License
 
----
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
-### 🔹 Variational Autoencoder (VAE)
-![VAE 2D Projection](vae_2d_coloured_by_class.png)  
-![Confusion Heatmap — VAE](confusion_heatmap_vae.png)
-
----
-
-### 🔹 Dimensionality Comparison & Evaluation
-![Side-by-Side Comparison](dimensionality_reduction_side_by_side.png)  
-![K-Means Clustered Embeddings](embeddings_coloured_by_kmeans.png)  
-![Reconstruction Error Comparison](reconstruction_error_comparison.png)  
-![Manifold Trustworthiness](manifold_trustworthiness.png)
-
----
-
-## 🧩 Downstream Clustering Results
-| Method | Silhouette | ARI | NMI |
-|--------|------------:|----:|----:|
-| VAE | 0.650 | 0.834 | 0.824 |
-| LLE | 0.726 | 0.756 | 0.754 |
-| Autoencoder | 0.535 | 0.676 | 0.700 |
-| Isomap | 0.569 | 0.664 | 0.688 |
-| t-SNE | 0.648 | 0.600 | 0.646 |
-| ICA | 0.479 | 0.571 | 0.610 |
-| UMAP | 0.773 | 0.453 | 0.653 |
-| Factor Analysis | 0.418 | 0.452 | 0.605 |
-| NMF | 0.531 | 0.440 | 0.648 |
-| Sparse PCA | 0.525 | 0.433 | 0.590 |
-| Truncated SVD | 0.523 | 0.433 | 0.590 |
-| PCA | 0.523 | 0.433 | 0.590 |
-| MDS | 0.505 | 0.433 | 0.590 |
-| Kernel PCA (RBF) | 0.883 | 0.057 | 0.213 |
-
----
-
-## 🔬 Insights
-- **VAE** achieves the best external clustering alignment (highest ARI/NMI).  
-- **UMAP** and **LLE** provide highly separable manifolds with top silhouette scores.  
-- **Autoencoders** balance geometric structure and reconstruction fidelity.  
-- **Kernel PCA (RBF)** performs poorly due to over-smoothing at γ = 15.  
-- Linear methods (PCA, SVD, FA) perform reliably but lack non-linear boundary capture.
-
----
-
-## 🔮 Future Enhancements
-- Integrate **Diffusion Maps** and **Hessian LLE** for deeper manifold exploration  
-- Add **dynamic visualization (Plotly Dash)**  
-- Extend to **high-dimensional real-world datasets (MNIST, CIFAR)**  
-- Compare **training efficiency (runtime, memory)** for each method  
-
----
-
-## 👨‍💻 Author
-**Shubham Singh**
-
----
-
-## 📜 License
+```text
 MIT License
 
+Copyright (c) 2026 Shubham Kumar Singh
 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
