@@ -1,124 +1,91 @@
-# 🌳 Decision Tree Classifier — Binary, Multiclass & Multilabel
+# Decision Tree Classification
 
-This project demonstrates **Decision Trees** applied across  
-1️⃣ Binary classification (Breast Cancer),  
-2️⃣ Multiclass classification (Iris), and  
-3️⃣ Multilabel tasks (Synthetic dataset).  
+> Implementation notes for the code and artifacts currently stored in this directory.
 
-It includes threshold tuning, ROC/PR curve annotation, calibration, feature importance visualization, and tree structure plotting.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
----
+## Overview
 
-## 🚀 Key Highlights
-- **Binary:** Threshold tuning (F1-max, Youden-J, Cost-min) + ROC/PR curves  
-- **Multiclass:** One-vs-Rest ROC/PR visualization + classwise metrics  
-- **Multilabel:** Mean feature importance across all label estimators  
-- **Extra:** Cross-validation summary, calibration curves, and interpretable decision tree plots (depth ≤ 3)
+An interpretable tree-classification pipeline spanning binary, multiclass and multilabel tasks with threshold selection, calibration and feature/tree visualizations.
 
----
+## Data and assumptions
 
-## 📊 Binary Classification (Breast Cancer Dataset)
+Scikit-learn Breast Cancer and Iris datasets, plus a generated multilabel classification dataset.
 
-| Metric | Mean ± SD (5-fold CV) |
-|:-------|:---------------------:|
-| Accuracy | 0.910 ± 0.028 |
-| Precision | 0.920 ± 0.039 |
-| Recall | 0.941 ± 0.010 |
-| F1 | 0.930 ± 0.020 |
-| ROC AUC | 0.900 ± 0.037 |
-| Log Loss | −3.229 ± 1.005 |
+## Implemented workflow
 
-✅ **Best Thresholds (Binary Decision Tree):**
+- DecisionTreeClassifier with Gini criterion in the binary example
+- Stratified cross-validation
+- Binary threshold criteria including F1, Youden’s J and a configured cost objective
+- Confusion matrices, ROC/PR, calibration and feature importance
 
-| Criterion | Threshold | Precision | Recall | F1 | Youden J | Cost |
-|:-----------|:----------:|:----------:|:------:|:-----------:|:------:|
-| F1-max | 0.001 | 0.935 | 0.935 | 0.935 | 0.825 | 77 |
-| J-max | 0.001 | 0.935 | 0.935 | 0.935 | 0.825 | 77 |
-| Cost-min | 0.000 | 0.626 | 1.000 | 0.770 | 0.000 | 64 |
+## Evaluation and artifacts
 
----
+The figures emphasize interpretability alongside task-specific classification evaluation.
 
-## 📈 Binary Evaluation Visuals
-### Confusion Matrix  
-![Binary Confusion Matrix](confusionmatrix_binary.png)
+The following result files are present in this directory (paths checked against the repository tree):
 
-### ROC & PR Curves  
-![ROC-PR Curve](ROC_PRcurve_binary.png)  
-![Optimized ROC-PR Curve](ROC_PRcurve_optima.png)
+- [confusionmatrix_binary.png](./confusionmatrix_binary.png)
+- [ROC_PRcurve_binary.png](./ROC_PRcurve_binary.png)
+- [thresholdtuning_binary.png](./thresholdtuning_binary.png)
+- [calibrationcurve_binary.png](./calibrationcurve_binary.png)
+- [featureimportance_binary.png](./featureimportance_binary.png)
+- [decissiontree_structure.png](./decissiontree_structure.png)
+- [confusionmatrix_multiclass.png](./confusionmatrix_multiclass.png)
+- [confusionmatrix_multilabel.png](./confusionmatrix_multilabel.png)
 
-### Threshold Tuning  
-![Threshold Tuning Curve](thresholdtuning_binary.png)
+### Selected visualizations
 
-### Calibration Curve  
-![Calibration Curve](calibrationcurve_binary.png)
+![confusionmatrix_binary.png](./confusionmatrix_binary.png)
 
-### Feature Importance  
-![Feature Importance](featureimportance_binary.png)
+![ROC_PRcurve_binary.png](./ROC_PRcurve_binary.png)
 
-### Tree Structure (Depth ≤ 3)  
-![Tree Visualization](decissiontree_structure.png)
+![thresholdtuning_binary.png](./thresholdtuning_binary.png)
 
----
+![calibrationcurve_binary.png](./calibrationcurve_binary.png)
 
-## 🌈 Multiclass Classification (Iris Dataset)
+## Run and dependencies
 
-| Metric | Mean ± SD (5-fold CV) |
-|:-------|:---------------------:|
-| Accuracy | 0.953 ± 0.034 |
-| F1 Macro | 0.953 ± 0.034 |
-| F1 Micro | 0.953 ± 0.034 |
-| Log Loss | −1.682 ± 1.225 |
+- Implementation: [decission_tree.py](./decission_tree.py)
+- Dependencies: [requirements.txt](./requirements.txt)
+```bash
+pip install -r "requirements.txt"
+python "decission_tree.py"
+```
 
-### Multiclass Confusion Matrix  
-![Multiclass Confusion Matrix](confusionmatrix_multiclass.png)
+## Limitations and reproducibility notes
 
-### ROC & PR Curves (OvR)  
-![ROC Curve Multiclass](roccurve_multiclass.png)  
-![PR Curve Multiclass](prcurve_multiclass.png)
+- The repository folder and script use the spelling `decission`; links retain those exact names.
+- Decision trees can be sensitive to split/data variations; saved metrics should be interpreted with the recorded split and evaluation setup.
 
-### Feature Importance  
-![Feature Importance Multiclass](featureimportance_multiclass.png)
+## Author
 
-### Tree Visualization  
-![Decision Tree Multiclass](decissiontree_multiclass.png)
+Shubham Kumar Singh
 
----
+## License
 
-## 🧩 Multilabel Classification (Synthetic Dataset)
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
-| Metric | Value |
-|:-------|:------:|
-| Subset Accuracy | 0.18 |
-| Hamming Loss | 0.280 |
-| Jaccard (Micro) | 0.413 |
-
-### Confusion Matrix (Label 0)  
-![Confusion Matrix Multilabel](confusionmatrix_multilabel.png)
-
-### Feature Importance (Mean across Labels)  
-![Feature Importance Multilabel](featureimportance_multilabel.png)
-
----
-
-## 💡 Insights
-- Decision Trees excel at **interpretable rules**, making them ideal baselines.  
-- **Threshold tuning** adjusts model bias toward precision or recall depending on cost asymmetry.  
-- **Calibration plots** help verify probability reliability.  
-- Multilabel trees highlight **mean feature relevance** across correlated outputs.  
-
----
-
-## 🔮 Future Enhancements
-- Add **Pruning vs Depth trade-off visualization**  
-- Integrate **Ensemble methods (Random Forest, XGBoost)**  
-- Implement **SHAP explanations for tree-based interpretability**
-
----
-
-## 👨‍💻 Author
-**Shubham Singh**
-
----
-
-## 📜 License
+```text
 MIT License
+
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
