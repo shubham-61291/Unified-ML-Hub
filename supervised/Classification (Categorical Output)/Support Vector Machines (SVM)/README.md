@@ -1,96 +1,91 @@
-# ⚙️ Support Vector Machine (SVM) — Binary, Multiclass & Multilabel Classification
+# Support Vector Machine (SVM) Classification
 
-The **Support Vector Machine (SVM)** algorithm is a powerful kernel-based method that finds the optimal separating hyperplane between classes.  
-This project demonstrates the application of **SVM (RBF kernel)** and **LinearSVC** across **Binary**, **Multiclass**, and **Multilabel** classification tasks, showcasing model tuning, evaluation, and visualization.
+> Implementation notes for the code and artifacts currently stored in this directory.
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## 🚀 Key Highlights
-✅ Implemented with both **RBF** and **LinearSVC** variants  
-✅ Applied on Binary, Multiclass, and Multilabel datasets  
-✅ Includes **5-fold Cross-Validation**, **ROC/PR Curves**, and **Calibration** plots  
-✅ **Threshold Tuning** with optimal thresholds (F1-max, J-max, Cost-min)  
-✅ Detailed **Confusion Matrices** and **Per-Class Calibration Curves**
+## Overview
 
----
+A support-vector classifier comparison for binary, multiclass and multilabel tasks. The binary pipeline uses an RBF-kernel SVC with probability estimates; LinearSVC/one-vs-rest variants support additional comparisons.
 
-## 📊 Binary Classification — Breast Cancer Dataset
+## Data and assumptions
 
-### Confusion Matrix  
-![Confusion Matrix — Binary](confusion_matrix_binary.png)
+Scikit-learn Breast Cancer and Iris datasets, plus a generated multilabel classification dataset.
 
-### ROC & PR Curves  
-![ROC-PR Curve — Binary](roc_pr_curve_binary.png)  
-![ROC-PR Curve — Optima](roc_pr_curve_binary_optima.png)
+## Implemented workflow
 
-### Threshold Tuning  
-![Threshold Tuning — Binary](threshold_tuning_binary.png)
+- RBF SVC and LinearSVC variants
+- StandardScaler pipeline for SVM
+- Stratified cross-validation
+- ROC/PR, threshold tuning, calibration and confusion matrices
 
-### Calibration Curve  
-![Calibration Curve — Binary](calibration_curve_binary.png)
+## Evaluation and artifacts
 
----
+The outputs are intended to help compare margin-based classifiers and probability/threshold behavior under standard sample datasets.
 
-## 🌈 Multiclass Classification — Iris Dataset
+The following result files are present in this directory (paths checked against the repository tree):
 
-### Confusion Matrix  
-![Confusion Matrix — Multiclass](confusion_matrix_multiclass.png)
+- [confusion_matrix_binary.png](./confusion_matrix_binary.png)
+- [roc_pr_curve_binary.png](./roc_pr_curve_binary.png)
+- [roc_pr_curve_binary_optima.png](./roc_pr_curve_binary_optima.png)
+- [threshold_tuning_binary.png](./threshold_tuning_binary.png)
+- [calibration_curve_binary.png](./calibration_curve_binary.png)
+- [confusion_matrix_multiclass.png](./confusion_matrix_multiclass.png)
+- [roc_curve_multiclass.png](./roc_curve_multiclass.png)
+- [confusion_matrix_label0.png](./confusion_matrix_label0.png)
 
-### ROC & PR Curves  
-![ROC Curve — Multiclass](roc_curve_multiclass.png)  
-![PR Curve — Multiclass](pr_curve_multiclass.png)
+### Selected visualizations
 
-### Calibration Curves (Per Class)  
-![Calibration Curves — Setosa, Versicolor, Virginica](calibration_sentosa_versicolor_virginica.png)
+![confusion_matrix_binary.png](./confusion_matrix_binary.png)
 
----
+![roc_pr_curve_binary.png](./roc_pr_curve_binary.png)
 
-## 🔢 Multilabel Classification — Synthetic Dataset
+![roc_pr_curve_binary_optima.png](./roc_pr_curve_binary_optima.png)
 
-### Confusion Matrix (Label 0)  
-![Confusion Matrix — Label 0](confusion_matrix_label0.png)
+![threshold_tuning_binary.png](./threshold_tuning_binary.png)
 
-### ROC Curves (per label)  
-![ROC Curve — Label 0](roc_curve_multilabel0.png)  
-![ROC Curve — Label 1](roc_curve_multilabel1.png)  
-![ROC Curve — Label 2](roc_curve_multilabel2.png)
+## Run and dependencies
 
-### PR Curves (per label)  
-![PR Curve — Label 0](pr_curve_multilabel0.png)  
-![PR Curve — Label 1](pr_curve_multilabel1.png)  
-![PR Curve — Label 2](pr_curve_multilabel2.png)
+- Implementation: [SVM.py](./SVM.py)
+- Dependencies: [requirements.txt](./requirements.txt)
+```bash
+pip install -r "requirements.txt"
+python "SVM.py"
+```
 
----
+## Limitations and reproducibility notes
 
-## 🧮 Model Performance Summary
+- RBF SVC probability estimation entails calibration internally and adds computational cost.
+- Saved results are tied to the recorded environment and split seed; this package does not rerun the benchmark.
 
-| Task | Dataset | Accuracy | F1 | AUC | Hamming | Jaccard |
-|------|----------|-----------|----|------|----------|----------|
-| Binary | Breast Cancer | 0.98 | 0.98 | 0.99 | — | — |
-| Multiclass | Iris | 0.93 | 0.93 | — | — | — |
-| Multilabel | Synthetic | — | 0.69 | — | 0.186 | 0.528 |
+## Author
 
----
+Shubham Kumar Singh
 
-## 🔬 Insights
-- **Binary (RBF SVM):** Achieved 98% accuracy and AUC ≈ 0.99 with excellent calibration.  
-- **Multiclass:** High precision across species with clear OvR separation.  
-- **Multilabel:** Balanced F1 across labels, effective under moderate correlation.  
-- **Threshold Optimization:** Cost-based tuning reduces false negatives under asymmetric penalties.
+## License
 
----
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
-## 🔮 Future Enhancements
-- Integrate **Polynomial** and **Sigmoid kernels** for comparison  
-- Use **GridSearchCV / Optuna** for hyperparameter tuning  
-- Incorporate **SHAP** and **LIME** explainability visualizations  
-
----
-
-## 👨‍💻 Author
-**Shubham Singh**
-
----
-
-## 📜 License
+```text
 MIT License
+
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
