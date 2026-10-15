@@ -1,106 +1,94 @@
-# 📘 Ridge, Lasso & ElasticNet Regression (California Housing)
+# Ordinary Least Squares, Ridge, Lasso and ElasticNet
 
-This project extends linear regression through **regularization techniques** — **Ridge (L2)**, **Lasso (L1)**, and **ElasticNet (L1 + L2)** — to address overfitting and multicollinearity using the **California Housing dataset**. It evaluates multiple regularization strengths, visualizes coefficient paths, and compares metrics to identify the optimal bias–variance tradeoff.
+> Implementation notes for the code and artifacts currently stored in this directory.
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## 🚀 Key Features
-- Comparative study of **OLS**, **Ridge**, **Lasso**, and **ElasticNet**  
-- Automatic alpha tuning using **RidgeCV**, **LassoCV**, and **ElasticNetCV**  
-- Full metric reporting (MSE, RMSE, MAE, R², Adjusted R²)  
-- Visual exploration of coefficient shrinkage and validation curves  
-- ElasticNet heatmap across α–L1 grid  
-- Comprehensive diagnostics: residuals, Q–Q plots, feature importances  
+## Overview
 
----
+A regularized-regression comparison focused on coefficient shrinkage, validation performance across regularization strength and model diagnostics.
 
-## 🧰 Tech Stack
-- **Framework:** Scikit-learn  
-- **Dataset:** California Housing  
-- **Regularization Models:** Ridge, Lasso, ElasticNet  
-- **Tools:** NumPy, Pandas, Seaborn, Matplotlib, SciPy  
+## Data and assumptions
 
----
+Scikit-learn California Housing dataset; first-time fetching may require network access.
 
-## 📊 Results Summary
+## Implemented workflow
 
-| Model | Validation R² | Test R² | Adj. R² | Best α | Effective p |
-|:------|:--------------:|:--------:|:--------:|:-------:|:-------------:|
-| Ordinary | 0.5848 | 0.6066 | 0.6055 | – | 8 |
-| Ridge | **0.5848** | **0.6068** | 0.6058 | 6.25 | 8 |
-| Lasso | 0.5845 | 0.6101 | 0.6092 | 0.0031 | 7 |
-| ElasticNet | 0.5845 | 0.6101 | 0.6092 | 0.0031 | 7 |
+- Ordinary least squares baseline
+- Ridge (L2), Lasso (L1) and ElasticNet regularization
+- Validation sweeps over alpha values
+- StandardScaler pipelines
+- MSE, RMSE, MAE, R² and adjusted R²
+- Coefficient paths and feature-coefficient comparison
 
-✅ **Best Model (Validation R²): Ridge Regression (α ≈ 6.25)**  
+## Evaluation and artifacts
 
----
+The plots emphasize regularization effects, stability and diagnostics across four regression estimators.
 
-## 📈 Metric Comparison
-![R² Comparison](R2%20comparison.png)  
-![RMSE Comparison](RMSE%20comparison.png)  
-![MAE Comparison](MAE%20comparison.png)  
+The following result files are present in this directory (paths checked against the repository tree):
 
----
+- [R2 comparison.png](./R2%20comparison.png)
+- [RMSE comparison.png](./RMSE%20comparison.png)
+- [MAE comparison.png](./MAE%20comparison.png)
+- [RIDGE_metricsvsalpha.png](./RIDGE_metricsvsalpha.png)
+- [LASSO_metricvsalpha.png](./LASSO_metricvsalpha.png)
+- [Coefficientpaths_RIDGE.png](./Coefficientpaths_RIDGE.png)
+- [Coefficientpaths_LASSO.png](./Coefficientpaths_LASSO.png)
+- [ELASTICNET validation R2.png](./ELASTICNET%20validation%20R2.png)
 
-## 📉 Validation Curves vs Alpha
-![Ridge: Metrics vs Alpha](RIDGE_metricsvsalpha.png)  
-![Lasso: Metrics vs Alpha](LASSO_metricvsalpha.png)  
+### Selected visualizations
 
----
+![R2 comparison.png](./R2%20comparison.png)
 
-## 🔁 Coefficient Paths
-![Ridge Coefficient Paths](Coefficientpaths_RIDGE.png)  
-![Lasso Coefficient Paths](Coefficientpaths_LASSO.png)  
+![RMSE comparison.png](./RMSE%20comparison.png)
 
----
+![MAE comparison.png](./MAE%20comparison.png)
 
-## 🌡️ ElasticNet Validation R² Heatmap
-![ElasticNet Validation Heatmap](ELASTICNET%20validation%20R2.png)  
+![RIDGE_metricsvsalpha.png](./RIDGE_metricsvsalpha.png)
 
----
+## Run and dependencies
 
-## 🔍 Model Diagnostics
+- Implementation: [ridge_lasso.py](./ridge_lasso.py)
+- Dependencies: [requirements.txt](./requirements.txt)
+```bash
+pip install -r "requirements.txt"
+python "ridge_lasso.py"
+```
 
-### Ordinary Least Squares
-![OLS: Actual vs Predicted](ordinary_actualvspred.png)  
-![OLS: Residual Plot](ordinary_residual.png)  
+## Limitations and reproducibility notes
 
-### Ridge Regression
-![Ridge: Actual vs Predicted](ridge_actualvspred.png)  
-![Ridge: Residual Plot](ridge_residual.png)  
+- Feature scaling is important when comparing penalty strengths.
+- The validation-selected regularization level is not a guarantee of performance on future data.
+- Coefficient magnitudes are not causal explanations.
 
-### Lasso Regression
-![Lasso: Actual vs Predicted](lasso_actualvspred.png)  
-![Lasso: Residual Plot](lasso_residual.png)  
+## Author
 
-### ElasticNet
-![ElasticNet: Actual vs Predicted](elasticnet_actualvspred.png)  
-![ElasticNet: Residual Plot](elasticnet_reesidual.png)  
+Shubham Kumar Singh
 
----
+## License
 
-## 🧩 Feature Importance Visualization
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
-### OLS vs Ridge vs Lasso vs ElasticNet
-![Feature Importance (OLS)](feature_imp_by_coeff_ordinary.png)  
-![Feature Importance (Ridge)](feature_importance_ridge.png)  
-![Feature Importance (Lasso)](feature_importance_lasso.png)  
-![Feature Importance (ElasticNet)](feature_imp_elasticnet.png)
-
----
-
-## 🔮 Future Enhancements
-- Implement **Bayesian Ridge Regression**  
-- Introduce **Cross-Validated ElasticNet GridSearch**  
-- Add **learning curve plots** for all models  
-- Integrate **model persistence** via joblib/pickle  
-
----
-
-## 👨‍💻 Author
-**Shubham Singh**
-
----
-
-## 📜 License
+```text
 MIT License
+
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
