@@ -1,87 +1,91 @@
-# 🧠 Neural Networks (Keras) — Binary, Multiclass & Multilabel Classification
+# Neural Networks for Classification (Keras)
 
-The **Neural Network (Keras)** model is a flexible deep-learning approach that learns nonlinear decision boundaries through layered representations.  
-This project demonstrates end-to-end implementation for **Binary**, **Multiclass**, and **Multilabel** classification with complete training visualization and evaluation.
+> Implementation notes for the code and artifacts currently stored in this directory.
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## 🚀 Key Highlights  
-✅ Implemented with TensorFlow 2.19 / Keras 2.19  
-✅ Covers three tasks – Binary, Multiclass, and Multilabel classification  
-✅ Comprehensive visualizations – Learning Curves, Confusion Matrices, ROC and PR Curves  
-✅ Evaluates Log Loss, Brier Score, MCC, Hamming Loss, and Jaccard Index  
-✅ Demonstrates dropout regularization and ReLU / Sigmoid / Softmax activations  
+## Overview
 
----
+A dense-neural-network comparison across binary, multiclass and multilabel tasks, with learning curves and common classification evaluation outputs.
 
-## 📊 Binary Classification — Breast Cancer Dataset
+## Data and assumptions
 
-### Learning Curve  
-![Learning Curve — Binary](learning_curve_binary.png)
+Scikit-learn Breast Cancer and Iris datasets, plus a generated multilabel classification dataset.
 
-### Confusion Matrix  
-![Confusion Matrix — Binary](confusion_matrix_binary.png)
+## Implemented workflow
 
-### ROC & PR Curves  
-![ROC-PR Curve — Binary](roc_pr_curve_binary.png)
+- TensorFlow/Keras feed-forward classifiers
+- Binary, multiclass and multilabel task examples
+- Training/validation curves
+- Confusion matrices, ROC/PR curves and per-class/per-label views
 
----
+## Evaluation and artifacts
 
-## 🌈 Multiclass Classification — Iris Dataset
+The artifact set is useful for comparing convergence and predictive diagnostics across three task formulations.
 
-### Learning Curve  
-![Learning Curve — Multiclass](learning_curve_multiclass.png)
+The following result files are present in this directory (paths checked against the repository tree):
 
-### Confusion Matrix  
-![Confusion Matrix — Multiclass](confusion_matrix_multiclass.png)
+- [learning_curve_binary.png](./learning_curve_binary.png)
+- [confusion_matrix_binary.png](./confusion_matrix_binary.png)
+- [roc_pr_curve_binary.png](./roc_pr_curve_binary.png)
+- [learning_curve_multiclass.png](./learning_curve_multiclass.png)
+- [confusion_matrix_multiclass.png](./confusion_matrix_multiclass.png)
+- [learning_curve_multilabel.png](./learning_curve_multilabel.png)
+- [roc_pr_curve_label0.png](./roc_pr_curve_label0.png)
 
-### ROC & PR Curves (per class)  
-![ROC-PR Curve — Setosa](roc_pr_curve_sentosa.png)  
-![ROC-PR Curve — Versicolor](roc_pr_curve_versicolor.png)  
-![ROC-PR Curve — Virginica](roc_pr_curve_virginica.png)
+### Selected visualizations
 
----
+![learning_curve_binary.png](./learning_curve_binary.png)
 
-## 🔢 Multilabel Classification — Synthetic Dataset
+![confusion_matrix_binary.png](./confusion_matrix_binary.png)
 
-### Learning Curve  
-![Learning Curve — Multilabel](learning_curve_multilabel.png)
+![roc_pr_curve_binary.png](./roc_pr_curve_binary.png)
 
-### ROC & PR Curves (per label)  
-![ROC-PR Curve — Label 0](roc_pr_curve_label0.png)  
-![ROC-PR Curve — Label 1](roc_pr_curve_label1.png)  
-![ROC-PR Curve — Label 2](roc_pr_curve_label2.png)
+![learning_curve_multiclass.png](./learning_curve_multiclass.png)
 
----
+## Run and dependencies
 
-## 🧮 Model Performance Summary
+- Implementation: [NN.py](./NN.py)
+- Dependencies: [requirements.txt](./requirements.txt)
+```bash
+pip install -r "requirements.txt"
+# Then run the script in a notebook-compatible environment as described above.
+```
 
-| Task | Dataset | Accuracy | F1 | AUC | Hamming | Jaccard |
-|------|----------|-----------|----|------|----------|----------|
-| Binary | Breast Cancer | 0.96 | 0.96 | 0.99 | — | — |
-| Multiclass | Iris | 0.87 | 0.87 | — | — | — |
-| Multilabel | Synthetic | — | 0.74 | — | 0.17 | 0.59 |
+## Limitations and reproducibility notes
 
----
+- The script contains IPython package-install magic; run it in a notebook-compatible environment as written or remove the `!pip` lines after installing the pinned dependencies.
+- The requirements pin TensorFlow-related packages; use a compatible Python/platform combination and validate the install in a clean environment.
+- Reported results are not asserted as independently rerun here.
 
-## 🔬 Insights  
-- **Binary Model:** Shows excellent recall and calibration, achieving AUC ≈ 0.99.  
-- **Multiclass Model:** Clearly separates Iris species despite overlapping petal features.  
-- **Multilabel Model:** Balanced performance with Hamming Loss ≈ 0.17 and Jaccard ≈ 0.59.  
+## Author
 
----
+Shubham Kumar Singh
 
-## 🔮 Future Enhancements  
-- Introduce Batch Normalization and Early Stopping  
-- Add Cross-Validation via Keras Wrappers (`KerasClassifier`)  
-- Extend to text or image domains with CNN / RNN architectures  
+## License
 
----
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
-## 👨‍💻 Author  
-**Shubham Singh**
-
----
-
-## 📜 License  
+```text
 MIT License
+
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
