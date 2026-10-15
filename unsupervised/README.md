@@ -1,68 +1,57 @@
-# 🧩 Unsupervised Learning — Complete Model Collection
+# Unsupervised Learning
 
-This directory presents the **complete suite of Unsupervised Learning algorithms**, implemented and documented by **Shubham Singh**.  
-Unsupervised learning identifies hidden structures or patterns in unlabeled data — without any explicit target variable — enabling clustering, representation learning, anomaly detection, and association rule mining.
+> Navigation and practical notes for this repository layer.
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## 🧭 Structure Overview
+## Scope
 
-| Category | Description | Folder Link |
-|-----------|-------------|--------------|
-| 🧠 **Clustering** | Groups data points based on similarity using algorithms such as K-Means, Hierarchical, DBSCAN, GMM, Spectral, BIRCH, Mean Shift, and SOM. | [Open CLUSTERING Folder](./CLUSTERING/) |
-| 📉 **Dimensionality Reduction** | Reduces high-dimensional data into compact representations while preserving structure — includes PCA, t-SNE, UMAP, Autoencoder, and VAE. | [Open Dimensionality Reduction Folder](./Dimensionality%20Reduction/) |
-| ⚠️ **Anomaly Detection** | Detects rare or abnormal patterns using Isolation Forest, One-Class SVM, Autoencoder, and statistical baselines. | [Open Anomaly Detection Folder](./Anomaly%20Detection/) |
-| 🛒 **Association Rule Learning** | Mines co-occurrence relationships (e.g., Market Basket Analysis) using Apriori, FP-Growth, and Eclat. | [Open Association Rule Learning Folder](./Association%20Rule%20Learning/) |
+This layer groups experiments that discover structure without using target labels to fit the unsupervised model. Some demos use labels only for post-hoc external evaluation; those labels should not be confused with training supervision.
 
----
+## Subdirectories
 
-## 📚 Detailed ReadMe Access
+| Directory | Scope | README |
+|---|---|---|
+| **CLUSTERING** | Partition or organize examples using similarity, density, hierarchical and mixture-based methods. | [Open README](./CLUSTERING/README.md) |
+| **Dimensionality Reduction** | Construct lower-dimensional representations for visualization or downstream analysis. | [Open README](./Dimensionality%20Reduction/README.md) |
+| **Anomaly Detection** | Rank or flag unusual points using statistical, distance and reconstruction approaches. | [Open README](./Anomaly%20Detection/README.md) |
+| **Association Rule Learning** | Discover item co-occurrence rules with support and interestingness statistics. | [Open README](./Association%20Rule%20Learning/README.md) |
 
-### 🧠 CLUSTERING  
-Implements **8 algorithms** on the Iris dataset — K-Means, Hierarchical (Ward/Complete), DBSCAN, GMM, Spectral, BIRCH, Mean Shift, and SOM.  
-Evaluates both internal and external metrics, with PCA/t-SNE plots, silhouettes, dendrograms, and confusion heatmaps.  
+## Working with a project
 
-🔗 [View Full CLUSTERING README](./CLUSTERING/README.md)
+- Prefer the local `requirements.txt` rather than assuming a single environment will satisfy every algorithm.
+- Several files originated as notebook exports; check each algorithm README before choosing `python script.py` versus a notebook-compatible execution path.
+- Dataset downloads, optional GPU backends and version-specific estimator parameters may affect whether a script runs unchanged.
+- Treat included plots as historical artifacts unless you rerun the experiment with the same configuration.
 
----
+## Author
 
-### ⚠️ ANOMALY DETECTION  
-Implements **5 anomaly detection methods** — Isolation Forest, One-Class SVM, Autoencoder, Mahalanobis Distance, and Z-Score Baseline.  
-Evaluates AUC-ROC, AUC-PR, and F1, with complete visualization and comparative summaries.  
+Shubham Kumar Singh
 
-🔗 [View Full ANOMALY DETECTION README](./Anomaly%20Detection/README.md)
+## License
 
----
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
-### 🛒 ASSOCIATION RULE LEARNING  
-Implements **Apriori**, **FP-Growth**, and **Eclat** algorithms for Market Basket Analysis.  
-Includes redundancy pruning, rule metrics (support, confidence, lift, leverage), generalization checks, and rich visualizations.  
-
-🔗 [View Full ASSOCIATION RULE LEARNING README](./Association%20Rule%20Learning/README.md)
-
----
-
-### 📉 DIMENSIONALITY REDUCTION  
-Implements **13 linear, manifold, and neural** techniques — PCA, t-SNE, UMAP, LLE, Isomap, MDS, NMF, ICA, Autoencoder, and Variational Autoencoder (VAE).  
-Evaluates reconstruction error, trustworthiness, and clustering quality using ARI/NMI/Silhouette metrics.  
-
-🔗 [View Full DIMENSIONALITY REDUCTION README](./Dimensionality%20Reduction/README.md)
-
----
-
-## 📊 Summary Table
-
-| Task Type | Algorithms | Purpose | Example Metrics |
-|------------|-------------|----------|----------------|
-| **Clustering** | K-Means, DBSCAN, GMM, Spectral, BIRCH | Discover natural groups in data | Silhouette, ARI, NMI |
-| **Dimensionality Reduction** | PCA, t-SNE, UMAP, AE, VAE | Compress data while preserving structure | Reconstruction Error, Trustworthiness |
-| **Anomaly Detection** | Isolation Forest, One-Class SVM, AE | Identify rare or abnormal points | AUC, F1, Precision-Recall |
-| **Association Rule Learning** | Apriori, FP-Growth, Eclat | Discover item relationships | Support, Confidence, Lift |
-
----
-
-## 👨‍💻 Author
-**Shubham Singh**
-
-## 📜 License
+```text
 MIT License
+
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
