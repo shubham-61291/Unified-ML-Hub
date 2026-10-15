@@ -1,102 +1,93 @@
-# 🌳 Gradient Boosted Regression Trees (LightGBM GPU)
+# Gradient Boosted Regression Trees (LightGBM)
 
-This project implements **Gradient Boosted Regression Trees (GBRT)** using **LightGBM (GPU accelerated)** on the **California Housing dataset**.  
-It explores three optimization stages — Early Stopping, Randomized Search, and Focused Grid Search — with **complete diagnostics, feature explainability, and SHAP analysis**.
+> Implementation notes for the code and artifacts currently stored in this directory.
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## 🚀 Key Highlights
-- **Early Stopping (GPU)** for automatic best iteration selection  
-- **RandomizedSearchCV** and **GridSearchCV** for hyperparameter optimization  
-- **Full diagnostics:** MSE, RMSE, MAE, R², Adjusted R²  
-- **Learning Curves** for Early Stop, Randomized Search, and Grid models  
-- **Residual and Q–Q plots** for model validation  
-- **Feature Importance**, **PDP/ICE**, and **SHAP Global & Local explanations**
+## Overview
 
----
+A LightGBM regression experiment with data splitting, randomized and grid search, early stopping, residual diagnostics, feature attribution and partial-dependence views.
 
-## 🧠 Model Summary
+## Data and assumptions
 
-| Model | Validation RMSE | Test RMSE | Validation R² | Test R² |
-|:------|:---------------:|:----------:|:--------------:|:--------:|
-| Early Stop | 0.4704 | 0.4387 | 0.8302 | 0.8544 |
-| Random Search | 0.4531 | 0.4290 | 0.8424 | 0.8608 |
-| Grid Search | **0.4532** | **0.4290** | **0.8423** | **0.8608** |
+California Housing data loaded through scikit-learn, with a remote CSV mirror fallback in the script. Initial access can require network connectivity.
 
-✅ **Best Model:** Grid-Search GBRT  
-(learning_rate = 0.1, max_depth = 5, subsample = 0.8, num_leaves = 70, n_estimators = 700)
+## Implemented workflow
 
----
+- LightGBM LGBMRegressor
+- 70/15/15 train/validation/test split
+- RandomizedSearchCV and a focused GridSearchCV pass
+- MSE, RMSE, MAE, R² and adjusted R²
+- Residual plots, PDP/ICE, SHAP global and local explanations
 
-## 📈 Learning Curves
-![Learning Curve - Early Stop](learningcurve.png)  
-![Learning Curve - Random Search](learningcurveRSmodel.png)  
-![Learning Curve - Grid Search](leaarningcurve_bestgridmodel.png)
+## Evaluation and artifacts
 
----
+This directory emphasizes regression diagnostics and feature-level interpretation rather than only a single score.
 
-## 📉 Residual Diagnostics
+The following result files are present in this directory (paths checked against the repository tree):
 
-### Validation Residuals
-![Residual Validation (Early Stop)](residual_validationbest.png)
+- [learningcurve.png](./learningcurve.png)
+- [leaarningcurve_bestgridmodel.png](./leaarningcurve_bestgridmodel.png)
+- [residual_validationbest.png](./residual_validationbest.png)
+- [residual_testbest.png](./residual_testbest.png)
+- [actualvspredicted_validationbest.png](./actualvspredicted_validationbest.png)
+- [actualvspredicted_testbest.png](./actualvspredicted_testbest.png)
+- [top2features.png](./top2features.png)
+- [SHAPvalue.png](./SHAPvalue.png)
 
-### Test Residuals
-![Residual Test (Best Model)](residual_testbest.png)
+### Selected visualizations
 
----
+![learningcurve.png](./learningcurve.png)
 
-## 🔍 Prediction Fit
+![leaarningcurve_bestgridmodel.png](./leaarningcurve_bestgridmodel.png)
 
-### Validation Set
-![Actual vs Predicted (Validation)](actualvspredicted_validationbest.png)
+![residual_validationbest.png](./residual_validationbest.png)
 
-### Test Set
-![Actual vs Predicted (Test)](actualvspredicted_testbest.png)
+![residual_testbest.png](./residual_testbest.png)
 
----
+## Run and dependencies
 
-## 🌿 Feature Importance
-Top features from the best-tuned model:  
-![Top Features (Best Grid)](top2features.png)
+- Implementation: [GBRT.py](./GBRT.py)
+- Dependencies: [requirements.txt](./requirements.txt)
+```bash
+pip install -r "requirements.txt"
+# Then run the script in a notebook-compatible environment as described above.
+```
 
----
+## Limitations and reproducibility notes
 
-## 📊 Partial Dependence & ICE Plots
-![1D PDP + ICE (Top Features)](pdp_ice_bestgrid_topfeatures.png)  
-![2D PDP Interaction (Top 2 Features)](2Dpdp_interactionoftop2feature.png)
+- The script includes IPython package-install magic and notebook display calls. Run notebook-style or remove the magic after installing requirements.
+- GPU support is platform- and build-dependent; `device="gpu"` is not guaranteed to work on every LightGBM install.
+- The CSV fallback is external data, so its availability and content are outside this repository’s control.
 
----
+## Author
 
-## 💡 SHAP Explainability
+Shubham Kumar Singh
 
-### Global SHAP
-![SHAP Beeswarm](SHAPvalue.png)
+## License
 
-### Local SHAP
-![Local SHAP Waterfall](localshaptest.png)
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
----
-
-## 🧩 Insights
-- Early stopping stabilized model training at **~1871 trees**.  
-- Random Search tuned the model near **learning_rate = 0.1, max_depth = 5, subsample = 0.8**.  
-- Grid refinement produced identical performance but smoother validation residuals.  
-- **Median income** and **house age** dominate predictive contribution (confirmed via SHAP).  
-
----
-
-## 🔮 Future Enhancements
-- Integrate **XGBoost** and **CatBoost** comparisons  
-- Add **Bayesian Optimization** for auto-tuning  
-- Implement **cross-validated SHAP dashboards**  
-- Extend to **multi-output regression tasks**
-
----
-
-## 👨‍💻 Author
-**Shubham Singh**
-
----
-
-## 📜 License
+```text
 MIT License
+
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
