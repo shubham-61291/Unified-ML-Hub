@@ -1,116 +1,93 @@
-# ⚡ Learning-to-Rank (LTR) — Classical, Industrial & Deep Approaches
+# Learning-to-Rank (LTR) Model Comparison
 
-This project presents a **comprehensive, end-to-end Learning-to-Rank (LTR)** framework covering **Pointwise, Pairwise, Listwise**, **Industrial (XGBoost + LightGBM)**, and **Deep Neural (PyTorch ListNet & LambdaRank)** paradigms.  
-It implements complete **ranking evaluation**, **per-query analysis**, **NDCG@k curves**, **Optuna-based hyperparameter optimization**, and **feature importance visualization**.
+> Implementation notes for the code and artifacts currently stored in this directory.
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## 🚀 Key Highlights
-✅ Covers all LTR families: Pointwise, Pairwise, Listwise  
-✅ Implements **classical algorithms (Ridge, Logistic, ListNet)** from scratch  
-✅ Includes **XGBoost** & **LightGBM LambdaRank** with **Optuna** optimization  
-✅ Adds **Deep Neural Ranking (PyTorch)** with **ListNet** & **LambdaRank NN**  
-✅ Full evaluation suite — NDCG@k, MAP, MRR, Precision@k  
-✅ Query-level insights, K-sweep curves, and loss tracking  
-✅ SHAP and gain-based feature importance for explainability  
+## Overview
 
----
+A consolidated ranking experiment covering pointwise, pairwise and listwise learning, boosted ranking models and PyTorch-based neural ranking approaches.
 
-## 🧠 Models Implemented
+## Data and assumptions
 
-| Category | Models |
-|-----------|---------|
-| **Classical** | Pointwise Ridge, Pairwise Logistic Ranker, Listwise ListNet |
-| **Industrial** | XGBoost (rank:pairwise), LightGBM (LambdaRank) with Optuna tuning |
-| **Deep Neural** | PyTorch Deep ListNet, PyTorch LambdaRank Neural Net |
+Ranking examples and grouped relevance data are prepared within the script; verify the data-generation/splitting block before substituting production ranking data.
 
----
+## Implemented workflow
 
-## 🧮 Core Metrics
-- **NDCG@k (Normalized Discounted Cumulative Gain)**  
-- **Precision@k (relevance ≥ 2)**  
-- **MAP (Mean Average Precision)**  
-- **MRR (Mean Reciprocal Rank)**  
-- **Per-query distribution & variance**  
+- Pointwise Ridge baseline
+- Pairwise logistic and listwise ranking approaches
+- XGBoost and LightGBM with Optuna search
+- Deep ListNet and neural LambdaRank-style training
+- NDCG@k, Precision@k, MAP, MRR and per-query evaluation
 
----
+## Evaluation and artifacts
 
-## 📊 Visual Outputs
+Use the outputs to compare ranking quality at cutoffs and the variability of scores across queries, rather than treating one aggregate metric as sufficient.
 
-### 📈 Training Loss
-![Deep ListNet Training Loss](training_loss_deeplistnet.png)  
-![LambdaRank NN Training Loss](training_loss_lambdarank.png)
+The following result files are present in this directory (paths checked against the repository tree):
 
----
+- [ndcg_vs_k_xgboost.png](./ndcg_vs_k_xgboost.png)
+- [ndcg_vs_k_lightgbm_optuna.png](./ndcg_vs_k_lightgbm_optuna.png)
+- [ndcg_vs_k_deep_listnet.png](./ndcg_vs_k_deep_listnet.png)
+- [ndcg_vs_k_lambdarank_nn.png](./ndcg_vs_k_lambdarank_nn.png)
+- [ndcg_distribution_xgboost_optuna.png](./ndcg_distribution_xgboost_optuna.png)
+- [per_query_ndcg_boxplot.png](./per_query_ndcg_boxplot.png)
+- [xgboost_top_20_feature_importance.png](./xgboost_top_20_feature_importance.png)
+- [training_loss_deeplistnet.png](./training_loss_deeplistnet.png)
 
-### 🔹 NDCG@k Curves
-![NDCG vs k — XGBoost](ndcg_vs_k_xgboost.png)  
-![NDCG vs k — LightGBM Optuna](ndcg_vs_k_lightgbm_optuna.png)  
-![NDCG vs k — Deep ListNet](ndcg_vs_k_deep_listnet.png)  
-![NDCG vs k — LambdaRank NN](ndcg_vs_k_lambdarank_nn.png)  
-![NDCG vs k — Listwise](ndcg_vs_k_listwise.png)  
-![NDCG vs k — Pairwise Ridge](ndcg_vs_k_pointwise_ridge.png)  
-![NDCG vs k — Pairwise Logistic](ndcg_vs_k_pairwise.png)
+### Selected visualizations
 
----
+![ndcg_vs_k_xgboost.png](./ndcg_vs_k_xgboost.png)
 
-### 📊 NDCG Distribution by Model
-![NDCG Distribution — Deep ListNet](ndcg_distribution_deep_list_net.png)  
-![NDCG Distribution — LambdaRank NN](ndcg_distribution_lambda_rank_NN.png)  
-![NDCG Distribution — LightGBM Optuna](ndcg_distribution_light_gbm_optuna.png)  
-![NDCG Distribution — XGBoost Optuna](ndcg_distribution_xgboost_optuna.png)  
-![NDCG Distribution — Pairwise Logistic](ndcg_distribution_parwise_logistic.png)  
-![NDCG Distribution — Pointwise Ridge](ndcg_distribution_pointwise_ridge.png)  
-![NDCG Distribution — Listwise](ndcg_distribution_listwise.png)
+![ndcg_vs_k_lightgbm_optuna.png](./ndcg_vs_k_lightgbm_optuna.png)
 
----
+![ndcg_vs_k_deep_listnet.png](./ndcg_vs_k_deep_listnet.png)
 
-### 📦 Per-Query Evaluation
-![Per-Query NDCG Boxplot](per_query_ndcg_boxplot.png)
+![ndcg_vs_k_lambdarank_nn.png](./ndcg_vs_k_lambdarank_nn.png)
 
----
+## Run and dependencies
 
-### 🔍 Feature Importance
-![XGBoost Top-20 Feature Importance](xgboost_top_20_feature_importance.png)  
-![LightGBM Top-20 Feature Importance](lightgbm_top_20_feature_importance.png)
+- Implementation: [RANKING.py](./RANKING.py)
+- Dependencies: [requirements.txt](./requirements.txt)
+```bash
+pip install -r "requirements.txt"
+# Then run the script in a notebook-compatible environment as described above.
+```
 
----
+## Limitations and reproducibility notes
 
-## 📈 Evaluation Summary
+- The script is a Colab notebook export containing `!pip` magic and should be run notebook-style as currently written or have those lines removed after dependency installation.
+- Ranking scores depend on query grouping and relevance labels; do not compare aggregate metrics across incompatible grouping schemes.
+- PyTorch wheels are requested from the CPU wheel index in the script; GPU behavior depends on the local install.
 
-| Model | NDCG@5 | NDCG@10 | Precision@5 | MAP | MRR |
-|--------|--------:|--------:|-------------:|----:|----:|
-| Ridge Regression | 0.584 | 0.601 | 0.632 | 0.422 | 0.535 |
-| Pairwise Logistic | 0.612 | 0.621 | 0.644 | 0.453 | 0.570 |
-| ListNet | 0.636 | 0.658 | 0.665 | 0.472 | 0.594 |
-| XGBoost (Optuna CV) | 0.655 | 0.682 | 0.689 | 0.502 | 0.623 |
-| LightGBM (Optuna CV) | 0.662 | 0.685 | 0.701 | 0.509 | 0.630 |
-| Deep ListNet (PyTorch) | 0.670 | 0.694 | 0.706 | 0.523 | 0.640 |
-| LambdaRank NN (PyTorch) | 0.675 | 0.698 | 0.712 | 0.533 | 0.648 |
+## Author
 
----
+Shubham Kumar Singh
 
-## 🔬 Insights
-- **Neural models** (Deep ListNet, LambdaRank NN) outperform traditional and industrial models in NDCG@10 and MRR.  
-- **LightGBM LambdaRank** achieves stable, high performance with Optuna-tuned parameters.  
-- **XGBoost** offers strong interpretability via SHAP and gain-based feature importances.  
-- **Pairwise Logistic** and **Listwise ListNet** provide educational baselines showing progressive improvement over Pointwise Ridge.  
+## License
 
----
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
-## 🔮 Future Enhancements
-- Integrate **Transformer-based rankers (T5Ranker, ColBERT)**  
-- Add **cross-validation variance visualization**  
-- Implement **multi-objective optimization (NDCG + MAP)**  
-- Add **SHAP summary plots for deep models**
-
----
-
-## 👨‍💻 Author
-**Shubham Singh**
-
----
-
-## 📜 License
+```text
 MIT License
 
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
