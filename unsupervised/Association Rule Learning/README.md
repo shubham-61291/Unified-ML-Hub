@@ -1,113 +1,91 @@
-# 🛒 Association Rule Learning — Apriori, FP-Growth & Eclat (Comprehensive Implementation)
+# Association Rule Learning: Apriori, FP-Growth and Eclat
 
-This project demonstrates **Market Basket Analysis** using three major **association rule mining** algorithms — **Apriori**, **FP-Growth**, and **Eclat** — implemented with complete evaluation, visualization, and generalization checks.
+> Implementation notes for the code and artifacts currently stored in this directory.
 
-It explores co-occurrence relationships between items (e.g., bread → butter), identifies strong association rules, and analyzes their predictive consistency across datasets.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
----
+## Overview
 
-## 🚀 Key Highlights
+A market-basket analysis experiment that mines frequent itemsets and association rules, computes interestingness measures, prunes redundant rules and compares behavior on held-out synthetic transactions.
 
-✅ Implements **Apriori**, **FP-Growth**, and **Eclat** algorithms  
-✅ Measures **support**, **confidence**, **lift**, **leverage**, **conviction**, **jaccard**, and **kulczynski**  
-✅ Includes **train/test generalization** of rules  
-✅ Full visualization suite: heatmaps, parallel coordinates, Pareto frontier, and network graphs  
-✅ Built-in **redundancy pruning** for cleaner, interpretable rules  
-✅ Exports results to CSV for external analysis  
+## Data and assumptions
 
----
+A small hand-written example and a larger synthetic transaction generator (2,500 generated baskets) with co-occurrence structure encoded in the generator.
 
-## ⚙️ Workflow Overview
+## Implemented workflow
 
-**Pipeline:**
-1. Transaction data generation (synthetic baskets)
-2. Frequent itemset mining (Apriori / FP-Growth / Eclat)
-3. Rule extraction and metric computation
-4. Redundancy pruning
-5. Visualization of rule metrics
-6. Threshold sweeps & generalization checks
-7. CSV export of final rules
+- Apriori and FP-Growth through mlxtend
+- Custom vertical-format Eclat implementation
+- Support, confidence, lift, leverage, conviction, Jaccard and Kulczynski
+- Redundancy pruning, threshold sweeps and train/test generalization checks
+- CSV exports and network/heatmap/parallel-coordinate/Pareto visuals
 
----
+## Evaluation and artifacts
 
-## 📊 Key Visualizations
+This directory is mainly a reproducible method demonstration; replace the synthetic transactions with a documented real transaction source before drawing business conclusions.
 
-### 1️⃣ Rule Support vs Confidence (Scatter)
-![Rules — Support vs Confidence](apriori_rules_support_vs_confidence.png)
+The following result files are present in this directory (paths checked against the repository tree):
 
-### 2️⃣ Lift Heatmap
-![Lift Heatmap](apriori_lift_heatmap.png)
+- [apriori_rules_support_vs_confidence.png](./apriori_rules_support_vs_confidence.png)
+- [apriori_lift_heatmap.png](./apriori_lift_heatmap.png)
+- [apriori_parallel_coordinates.png](./apriori_parallel_coordinates.png)
+- [apriori_pareto_frontier.png](./apriori_pareto_frontier.png)
+- [apriori_rule_network_top40.png](./apriori_rule_network_top40.png)
+- [generalization_confidence_train_vs_test.png](./generalization_confidence_train_vs_test.png)
+- [generalization_lift_train_vs_test.png](./generalization_lift_train_vs_test.png)
 
-### 3️⃣ Parallel Coordinates Plot
-![Parallel Coordinates](apriori_parallel_coordinates.png)
+### Selected visualizations
 
-### 4️⃣ Pareto Frontier
-![Pareto Frontier](apriori_pareto_frontier.png)
+![apriori_rules_support_vs_confidence.png](./apriori_rules_support_vs_confidence.png)
 
-### 5️⃣ Rule Network (Top 40 by Lift)
-![Rule Network](apriori_rule_network_top40.png)
+![apriori_lift_heatmap.png](./apriori_lift_heatmap.png)
 
-### 6️⃣ Rule Count vs Min Support
-![Rule Count vs Min Support](rule_count_vs_min_support.png)
+![apriori_parallel_coordinates.png](./apriori_parallel_coordinates.png)
 
-### 7️⃣ Bar Graph — Support, Confidence, Lift, Leverage
-![Bar Graph Metrics](bargraph_support_conf_lift_lev_etc.png)
+![apriori_pareto_frontier.png](./apriori_pareto_frontier.png)
 
-### 8️⃣ Top Antecedents and Consequents
-![Top Antecedent Consequent](top_antecedent_consequent.png)
+## Run and dependencies
 
-### 9️⃣ Generalization — Confidence (Train vs Test)
-![Confidence Train vs Test](generalization_confidence_train_vs_test.png)
+- Implementation: [association rule learning.py](./association%20rule%20learning.py)
+- Dependencies: [requirements.txt](./requirements.txt)
+```bash
+pip install -r "requirements.txt"
+# Then run the script in a notebook-compatible environment as described above.
+```
 
-### 🔟 Generalization — Lift (Train vs Test)
-![Lift Train vs Test](generalization_lift_train_vs_test.png)
+## Limitations and reproducibility notes
 
----
+- Association is not causation. The synthetic generator builds in co-occurrence structure, so benchmark results should not be described as evidence about a real retailer.
+- The script contains IPython package-install magic; run it notebook-style or remove the magic after installing requirements.
 
-## 📈 Algorithm Comparison
+## Author
 
-| Algorithm | Best Lift | Best Confidence | Notes |
-|------------|------------|----------------|--------|
-| **Apriori** | 2.04 | 0.66 | Best for clarity and interpretability |
-| **FP-Growth** | 2.04 | 0.66 | Fastest on large datasets |
-| **Eclat** | 2.04 | 0.66 | Efficient memory-wise (vertical data format) |
+Shubham Kumar Singh
 
----
+## License
 
-## 📉 Generalization Check
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
-| Antecedent | Consequent | Train Conf | Test Conf | Train Lift | Test Lift |
-|-------------|-------------|-------------|------------|-------------|------------|
-| (pasta) | (sauce) | 0.60 | 0.68 | 1.68 | 1.88 |
-| (cookies) | (coffee) | 0.60 | 0.65 | 1.81 | 2.12 |
-| (butter, milk) | (bread) | 0.55 | 0.59 | 1.73 | 1.93 |
-| (bread, pasta) | (sauce) | 0.61 | 0.70 | 1.71 | 1.93 |
-
-✅ Rules demonstrate **strong generalization**, proving that frequent co-occurrences in training persist in test data.
-
----
-
-## 🧠 Insights
-
-- **Apriori** and **FP-Growth** produced nearly identical rules (lift ≈ 2.04, confidence ≈ 0.66).  
-- **Eclat** matched their performance while being computationally efficient.  
-- Items such as **pasta → sauce** and **cookies → coffee** consistently appear as top associations.  
-- Rule generalization analysis confirms high predictive stability (train vs. test lift correlation ≈ 0.9).
-
----
-
-## 🔮 Future Enhancements
-
-- Integrate **real-world retail datasets** (e.g., Instacart, UCI Market Basket).  
-- Add **interactive visualizations** via Plotly or PyVis.  
-- Extend evaluation with **rule interestingness measures** (e.g., chi-square, certainty factor).  
-
----
-
-## 👨‍💻 Author
-**Shubham Singh**
-
----
-
-## 📜 License
+```text
 MIT License
+
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
