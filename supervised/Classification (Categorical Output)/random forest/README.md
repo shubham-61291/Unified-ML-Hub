@@ -1,101 +1,91 @@
-# 🌲 Random Forest Classifier — Binary, Multiclass & Multilabel Classification
+# Random Forest Classification
 
-The **Random Forest** algorithm is a robust ensemble method that combines multiple decision trees to enhance accuracy, stability, and interpretability.  
-This project demonstrates its implementation across **Binary**, **Multiclass**, and **Multilabel** problems, including detailed threshold optimization, feature importance, and calibration.
+> Implementation notes for the code and artifacts currently stored in this directory.
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## 🚀 Key Highlights
-✅ Applied Random Forest on three classification tasks (Binary, Multiclass, Multilabel)  
-✅ Comprehensive evaluation: CV metrics, Confusion Matrices, ROC/PR Curves, Calibration Curves  
-✅ **Threshold Tuning** with optimal thresholds table for Binary classification  
-✅ **Feature Importance (MDI & Permutation)** with interpretive visualization  
-✅ **OOB Curve** illustrating ensemble stability  
+## Overview
 
----
+A tree-ensemble classifier comparison across binary, multiclass and multilabel examples, including out-of-bag behavior and both impurity-based and permutation feature importance.
 
-## 📊 Binary Classification — Breast Cancer Dataset
+## Data and assumptions
 
-### Confusion Matrix  
-![Confusion Matrix — Binary](confusion_matrix_binary.png)
+Scikit-learn Breast Cancer and Iris datasets, plus a generated multilabel classification dataset.
 
-### ROC & PR Curves  
-![ROC-PR Curve — Binary](roc_pr_curve_binary.png)  
-![ROC-PR Curve (Optima)](roc_pr_curve_binary_optima.png)
+## Implemented workflow
 
-### Threshold Tuning  
-![Threshold Tuning — Binary](threshold_tuning_binary.png)
+- RandomForestClassifier
+- Stratified cross-validation
+- OOB score vs. number of trees
+- Threshold tuning, calibration, ROC/PR, confusion matrices, feature and permutation importance
 
-### Calibration Curve  
-![Calibration Curve — Binary](calibration_curve_binary.png)
+## Evaluation and artifacts
 
-### Feature Importance  
-![Feature Importance — Binary](feature_importance_binary.png)
+The saved artifacts illustrate ensemble evaluation and model-inspection views across the included sample tasks.
 
-### Permutation Importance  
-![Permutation Importance — Binary](permutation_importance_binary.png)
+The following result files are present in this directory (paths checked against the repository tree):
 
-### OOB Curve  
-![OOB Score vs Number of Trees](oob_score_vs_number_of_trees.png)
+- [confusion_matrix_binary.png](./confusion_matrix_binary.png)
+- [roc_pr_curve_binary.png](./roc_pr_curve_binary.png)
+- [threshold_tuning_binary.png](./threshold_tuning_binary.png)
+- [calibration_curve_binary.png](./calibration_curve_binary.png)
+- [feature_importance_binary.png](./feature_importance_binary.png)
+- [permutation_importance_binary.png](./permutation_importance_binary.png)
+- [oob_score_vs_number_of_trees.png](./oob_score_vs_number_of_trees.png)
+- [confusion_matrix_multiclass.png](./confusion_matrix_multiclass.png)
 
----
+### Selected visualizations
 
-## 🌈 Multiclass Classification — Iris Dataset
+![confusion_matrix_binary.png](./confusion_matrix_binary.png)
 
-### Confusion Matrix  
-![Confusion Matrix — Multiclass](confusion_matrix_multiclass.png)
+![roc_pr_curve_binary.png](./roc_pr_curve_binary.png)
 
-### ROC & PR Curves  
-![ROC Curves — Multiclass](roc_curves_multiclass.png)  
-![PR Curves — Multiclass](pr_curve_multiclass.png)
+![threshold_tuning_binary.png](./threshold_tuning_binary.png)
 
-### Feature Importance  
-![Feature Importance — Multiclass](feature_importance_multiclass.png)
+![calibration_curve_binary.png](./calibration_curve_binary.png)
 
-### Permutation Importance  
-![Permutation Importance — Multiclass](permutation_importance_multiclass.png)
+## Run and dependencies
 
----
+- Implementation: [random forest.py](./random%20forest.py)
+- Dependencies: [requirements.txt](./requirements.txt)
+```bash
+pip install -r "requirements.txt"
+python "random forest.py"
+```
 
-## 🔢 Multilabel Classification — Synthetic Dataset
+## Limitations and reproducibility notes
 
-### Confusion Matrix (Label 0)  
-![Confusion Matrix — Label 0 Multilabel](confusion_matrix_multilabel_label0.png)
+- The script filename includes a space; quote the path when executing it from a shell.
+- Feature importance is diagnostic rather than causal evidence.
 
-### Feature Importance  
-![Feature Importance — Multilabel](feature_importance_multilabel.png)
+## Author
 
----
+Shubham Kumar Singh
 
-## 🧮 Model Performance Summary
+## License
 
-| Task | Dataset | Accuracy | F1 | AUC | Hamming | Jaccard |
-|------|----------|-----------|----|------|----------|----------|
-| Binary | Breast Cancer | 0.95 | 0.96 | 0.99 | — | — |
-| Multiclass | Iris | 0.91 | 0.91 | — | — | — |
-| Multilabel | Synthetic | — | 0.66 | — | 0.19 | 0.50 |
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
----
-
-## 🔬 Insights
-- **Binary:** Strong generalization with AUC ≈ 0.99 and stable OOB score (0.967).  
-- **Multiclass:** Excellent separation across Iris classes with consistent F1 scores.  
-- **Multilabel:** Demonstrates balanced precision-recall with moderate label overlap.  
-- **Feature Importance:** Identifies key features via both MDI and permutation metrics.  
-
----
-
-## 🔮 Future Enhancements
-- Integrate **GridSearchCV** or **Optuna** for hyperparameter tuning  
-- Add **SHAP** interpretability plots  
-- Extend to **Regression** and **Imbalanced Classification** scenarios  
-
----
-
-## 👨‍💻 Author
-**Shubham Singh**
-
----
-
-## 📜 License
+```text
 MIT License
+
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
