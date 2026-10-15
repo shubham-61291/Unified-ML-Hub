@@ -1,103 +1,90 @@
-# 🧠 Naïve Bayes (GaussianNB) — Binary, Multiclass & Multilabel Classification
+# Naïve Bayes Classification
 
-This project implements **Naïve Bayes classifiers** (GaussianNB) for three tasks — **Binary**, **Multiclass**, and **Multilabel** classification — demonstrating their behavior with detailed evaluation metrics, calibration, and visualization.
+> Implementation notes for the code and artifacts currently stored in this directory.
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## 🚀 Key Highlights
-✅ GaussianNB applied across Binary, Multiclass, and Multilabel datasets  
-✅ Includes Cross-Validation (5-fold), ROC/PR Curves with annotated thresholds  
-✅ Calibration curves for model reliability assessment  
-✅ Feature distribution plots to validate Gaussian assumptions  
-✅ Optimal Threshold Table and Cost Function visualization (Binary)  
+## Overview
 
----
+A Gaussian Naïve Bayes-focused implementation comparing binary, multiclass and multilabel classification, with probabilistic evaluation and feature-distribution views.
 
-## 📊 Binary Classification — Breast Cancer Dataset
+## Data and assumptions
 
-### Confusion Matrix
-![Confusion Matrix — Binary](confusion_matrix_binary.png)
+Scikit-learn Breast Cancer and Iris datasets, plus a generated multilabel classification dataset.
 
-### ROC & PR Curves
-![ROC-PR Curve — Binary](roc_pr_curve_binary.png)
-![Initial ROC-PR Curve — Binary](roc_pr_curve_binary_initial.png)
+## Implemented workflow
 
-### Threshold Tuning
-![Threshold Tuning — Binary](threshold_tuning_binary.png)
+- GaussianNB for the main examples
+- One-vs-rest multiclass/multilabel setup
+- Stratified cross-validation
+- Threshold tuning, ROC/PR, calibration and feature distribution plots
 
-### Calibration Curve
-![Calibration Curve — Binary](calibration_curve_binary.png)
+## Evaluation and artifacts
 
-### Feature Distributions
-![Feature Distribution — Mean Area (Binary)](featuredist_meanarea_binary.png)
-![Feature Distribution — Mean Perimeter](feature_dist_mean_perimeter.png)
-![Feature Distribution — Mean Radius](feature_dist_mean_radius.png)
+Use the plots to inspect probabilistic classification behavior and where simple distributional assumptions may or may not fit.
 
----
+The following result files are present in this directory (paths checked against the repository tree):
 
-## 🌈 Multiclass Classification — Iris Dataset
+- [confusion_matrix_binary.png](./confusion_matrix_binary.png)
+- [roc_pr_curve_binary.png](./roc_pr_curve_binary.png)
+- [threshold_tuning_binary.png](./threshold_tuning_binary.png)
+- [calibration_curve_binary.png](./calibration_curve_binary.png)
+- [confusion_matrix_multiclass.png](./confusion_matrix_multiclass.png)
+- [roc_curve_multiclass.png](./roc_curve_multiclass.png)
+- [confusion_matrix_label_0_multilabel.png](./confusion_matrix_label_0_multilabel.png)
 
-### Confusion Matrix
-![Confusion Matrix — Multiclass](confusion_matrix_multiclass.png)
+### Selected visualizations
 
-### ROC & PR Curves
-![ROC Curve — Multiclass](roc_curve_multiclass.png)
-![PR Curve — Multiclass](pr_curve_multiclass.png)
+![confusion_matrix_binary.png](./confusion_matrix_binary.png)
 
-### Calibration Curves
-![Calibration Curve (Setosa vs Versicolor vs Virginica)](calibration_setosa_ver_vir.png)
+![roc_pr_curve_binary.png](./roc_pr_curve_binary.png)
 
-### Feature Distributions
-![Feature Distribution — Sepal Length](feature_dist_sepal_len.png)
-![Feature Distribution — Petal Length](feature_dist_petal_len.png)
+![threshold_tuning_binary.png](./threshold_tuning_binary.png)
 
----
+![calibration_curve_binary.png](./calibration_curve_binary.png)
 
-## 🔢 Multilabel Classification — Synthetic Dataset
+## Run and dependencies
 
-### Confusion Matrix (Label 0)
-![Confusion Matrix — Label 0 Multilabel](confusion_matrix_label_0_multilabel.png)
+- Implementation: [NaiveBayes.py](./NaiveBayes.py)
+- Dependencies: [requirements.txt](./requirements.txt)
+```bash
+pip install -r "requirements.txt"
+python "NaiveBayes.py"
+```
 
-### ROC Curves (per label)
-![ROC Curve — Multilabel Label 0](roc_curve_multilabel_label0.png)
-![ROC Curve — Multilabel Label 1](roc_curve_multilabel_label1.png)
-![ROC Curve — Multilabel Label 2](roc_curve_multilabel_label2.png)
+## Limitations and reproducibility notes
 
-### PR Curves (per label)
-![PR Curve — Multilabel Label 0](pr_curve_multilabel_label0.png)
-![PR Curve — Multilabel Label 1](pr_curve_multilabel_label1.png)
-![PR Curve — Multilabel Label 2](pr_curve_multilabel_label2.png)
+- The code includes dataset generation and loads the other examples from scikit-learn.
+- GaussianNB’s conditional-independence and feature-distribution assumptions are modeling assumptions, not guarantees about the dataset.
 
----
+## Author
 
-## 🧮 Model Performance Summary
+Shubham Kumar Singh
 
-| Task | Dataset | Accuracy | F1 | AUC | Hamming | Jaccard |
-|------|----------|-----------|----|------|----------|----------|
-| Binary | Breast Cancer | 0.95 | 0.96 | 0.989 | — | — |
-| Multiclass | Iris | 0.91 | 0.91 | — | — | — |
-| Multilabel | Synthetic | — | 0.68 | — | 0.201 | 0.520 |
+## License
 
----
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
-## 🔬 Insights
-- **Binary:** Excellent separability and calibration; GaussianNB aligns with breast cancer feature distribution.  
-- **Multiclass:** Clear probabilistic decision boundaries for each Iris species.  
-- **Multilabel:** Maintains balanced precision-recall tradeoff across multiple correlated labels.  
-
----
-
-## 🔮 Future Enhancements
-- Implement **BernoulliNB** and **MultinomialNB** variants for discrete data  
-- Extend to **text classification** with TF-IDF features  
-- Add **Bayesian hyperparameter tuning** for prior adjustment  
-
----
-
-## 👨‍💻 Author
-**Shubham Singh**
-
----
-
-## 📜 License
+```text
 MIT License
+
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
