@@ -1,91 +1,91 @@
-# 🧠 Neural Network Regression with Uncertainty (Continuous Output)
+# Neural Network Regression with Uncertainty
 
-This project implements **Deep Neural Network Regression** using  
-1️⃣ **MC Dropout** for *epistemic uncertainty*  
-2️⃣ **Heteroscedastic NN** for *aleatoric uncertainty*.  
+> Implementation notes for the code and artifacts currently stored in this directory.
 
-Both models are trained on the **California Housing dataset** and executed on GPU with **mixed precision training** for maximum performance.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
----
+## Overview
 
-## 🚀 Key Highlights
-- **Monte Carlo Dropout (MC Dropout)** → Estimates epistemic uncertainty via stochastic forward passes  
-- **Heteroscedastic Neural Network** → Learns aleatoric (data) uncertainty by predicting both mean and variance  
-- **GPU + Mixed Precision (float16)** for efficiency  
-- **Automatic LR scheduling**, **early stopping**, and **reduce on plateau** callbacks  
-- **Comprehensive evaluation:** MSE, RMSE, MAE, R², Adjusted R²  
-- **Residual analysis, Q–Q plots, and loss dynamics**  
+A Keras regression experiment designed to compare point prediction and uncertainty-oriented neural approaches, with mixed precision when hardware supports it.
 
----
+## Data and assumptions
 
-## ⚙️ Model Architecture Overview
-- Input: 8 features from California Housing dataset  
-- Hidden Layers: [128 → 64 → 32] with ReLU activation  
-- Dropout: 0.2 (MC) and 0.1 (Heteroscedastic)  
-- Output:  
-  - **MC Dropout:** Single scalar (price)  
-  - **Heteroscedastic:** Two heads → μ (mean) and log(σ²)  
+Scikit-learn California Housing dataset; first download may require network access.
 
----
+## Implemented workflow
 
-## 📊 Performance Summary
+- Dense neural-network regression
+- Monte Carlo dropout for an epistemic-uncertainty approximation
+- Heteroscedastic prediction for input-dependent aleatoric uncertainty
+- Train/validation/test evaluation
+- MSE, RMSE, MAE, R², adjusted R² and residual analysis
 
-| Model | Validation RMSE | Test RMSE | Validation R² | Test R² |
-|:------|:---------------:|:----------:|:--------------:|:--------:|
-| MC Dropout | 0.542 | 0.511 | 0.774 | 0.803 |
-| Heteroscedastic NN | 0.537 | 0.506 | 0.778 | 0.808 |
+## Evaluation and artifacts
 
-✅ **Best Model:** Heteroscedastic NN (lower uncertainty, smoother residuals)
+The stored visual artifacts cover learning-rate/training behavior, fit quality and residual diagnostics.
 
----
+The following result files are present in this directory (paths checked against the repository tree):
 
-## 📉 Loss Curves and LR Schedule
+- [LosscurveMCdropout.png](./LosscurveMCdropout.png)
+- [LRscheduleMCdropout.png](./LRscheduleMCdropout.png)
+- [actualvspredicted_validation.png](./actualvspredicted_validation.png)
+- [actualvspredicted_test.png](./actualvspredicted_test.png)
+- [residual_validation.png](./residual_validation.png)
+- [residual_test.png](./residual_test.png)
 
-### MC Dropout
-![Loss Curve (MC Dropout)](LosscurveMCdropout.png)  
-![Learning Rate Schedule (MC Dropout)](LRscheduleMCdropout.png)
+### Selected visualizations
 
----
+![LosscurveMCdropout.png](./LosscurveMCdropout.png)
 
-## 📈 Residual Diagnostics
+![LRscheduleMCdropout.png](./LRscheduleMCdropout.png)
 
-### Validation Residuals
-![Residual Validation](residual_validation.png)
+![actualvspredicted_validation.png](./actualvspredicted_validation.png)
 
-### Test Residuals
-![Residual Test](residual_test.png)
+![actualvspredicted_test.png](./actualvspredicted_test.png)
 
----
+## Run and dependencies
 
-## 🔍 Prediction Fit
+- Implementation: [NNcontinuos_output.py](./NNcontinuos_output.py)
+- Dependencies: [requirements.txt](./requirements.txt)
+```bash
+pip install -r "requirements.txt"
+# Then run the script in a notebook-compatible environment as described above.
+```
 
-### Validation
-![Actual vs Predicted (Validation)](actualvspredicted_validation.png)
+## Limitations and reproducibility notes
 
-### Test
-![Actual vs Predicted (Test)](actualvspredicted_test.png)
+- The script contains IPython package-install magic and should be run in a notebook-compatible environment as-is.
+- GPU and mixed-precision behavior depend on compatible TensorFlow, CUDA and device support.
+- Uncertainty estimates are model-dependent and should not be interpreted as calibrated coverage guarantees without further validation.
 
----
+## Author
 
-## 🧩 Key Learnings
-- MC Dropout captures **epistemic uncertainty**, stabilizing predictions on sparse regions.  
-- Heteroscedastic models handle **noise variance**, improving predictive intervals.  
-- LR schedule with mixed precision yields faster convergence and smoother loss decay.  
+Shubham Kumar Singh
 
----
+## License
 
-## 🧠 Future Enhancements
-- Integrate **Bayesian layers (TF Probability)** for deeper uncertainty quantification  
-- Add **Ensemble + MC Dropout** hybrid for robustness  
-- Implement **SHAP-based feature explainability**  
-- Deploy trained model on TensorFlow Serving with uncertainty visual dashboards  
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
----
-
-## 👨‍💻 Author
-**Shubham Singh**
-
----
-
-## 📜 License
+```text
 MIT License
+
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
