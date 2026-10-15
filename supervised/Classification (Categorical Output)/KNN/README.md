@@ -1,90 +1,91 @@
-# 🤖 K-Nearest Neighbors (KNN) — Binary, Multiclass & Multilabel Classification
+# K-Nearest Neighbors (KNN) Classification
 
-The **K-Nearest Neighbors (KNN)** algorithm is a non-parametric method used for classification and regression.  
-This project demonstrates its application on **Binary**, **Multiclass**, and **Multilabel** datasets with full model evaluation and visualization.
+> Implementation notes for the code and artifacts currently stored in this directory.
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## 🚀 Key Features
-✅ Binary classification using the **Breast Cancer Dataset**  
-✅ Multiclass classification using the **Iris Dataset**  
-✅ Multilabel classification using a **synthetic dataset**  
-✅ Includes **ROC/PR curves**, **Calibration curves**, **Threshold tuning**, and **Confusion matrices**  
-✅ Visual performance analysis through **k-vs-error** and **subset accuracy** plots  
+## Overview
 
----
+An end-to-end KNN comparison across binary, multiclass and multilabel classification, with scaling, cross-validation, probability-based diagnostics and selection of the neighborhood size.
 
-## 📊 Binary Classification (Breast Cancer Dataset)
+## Data and assumptions
 
-### Confusion Matrix  
-![Confusion Matrix — Binary](confusion_matrix_binary.png)
+Scikit-learn Breast Cancer and Iris datasets, plus a generated multilabel classification dataset.
 
-### ROC & PR Curves  
-![ROC-PR Curve — Binary](ROC_PR_Curve_binary.png)  
-![Optimized ROC-PR Curve](ROC_PR_optima.png)
+## Implemented workflow
 
-### Threshold Tuning  
-![Threshold Tuning — Binary](threshold_tuning_binary.png)
+- Distance-weighted KNN with a default neighborhood parameter in the script
+- StandardScaler + estimator Pipeline
+- Stratified cross-validation for binary classification
+- Threshold, calibration, ROC/PR, confusion-matrix, k-vs-error and subset-accuracy diagnostics
 
-### Calibration Curve  
-![Calibration Curve — Binary](Calibration_curve_binary.png)
+## Evaluation and artifacts
 
-### k-vs-Error Curve  
-![k vs Error — Binary](Kvserror_binary.png)
+Use this directory to study distance-based classification trade-offs and how scaling, neighbor count and threshold selection affect the displayed evaluation.
 
----
+The following result files are present in this directory (paths checked against the repository tree):
 
-## 🌈 Multiclass Classification (Iris Dataset)
+- [confusion_matrix_binary.png](./confusion_matrix_binary.png)
+- [ROC_PR_Curve_binary.png](./ROC_PR_Curve_binary.png)
+- [threshold_tuning_binary.png](./threshold_tuning_binary.png)
+- [Calibration_curve_binary.png](./Calibration_curve_binary.png)
+- [Kvserror_binary.png](./Kvserror_binary.png)
+- [Confusion_matrix_multiclass.png](./Confusion_matrix_multiclass.png)
+- [ROC_curve_multiclass.png](./ROC_curve_multiclass.png)
+- [PR_Curve_multilabel.png](./PR_Curve_multilabel.png)
 
-### Confusion Matrix  
-![Confusion Matrix — Multiclass](Confusion_matrix_multiclass.png)
+### Selected visualizations
 
-### ROC & PR Curves  
-![ROC Curve — Multiclass](ROC_curve_multiclass.png)  
-![PR Curve — Multiclass](PR_curve_multiclass.png)
+![confusion_matrix_binary.png](./confusion_matrix_binary.png)
 
+![ROC_PR_Curve_binary.png](./ROC_PR_Curve_binary.png)
 
----
+![threshold_tuning_binary.png](./threshold_tuning_binary.png)
 
-## 🔢 Multilabel Classification (Synthetic Dataset)
+![Calibration_curve_binary.png](./Calibration_curve_binary.png)
 
-### Confusion Matrix (Label 0)  
-![Confusion Matrix — Multilabel Label 0](confusion_matrix_label_0_multilabel.png)
+## Run and dependencies
 
-### ROC Curves  
-![ROC Curve — Multilabel](ROC_curve_multilabel.png)  
-![ROC Curve — Multilabel Label 2](ROC_curve_multilable_labe_2.png)  
-![ROC Curve — Multilabel Fork9](ROC_curve_multilable_fork9.png)
+- Implementation: [KNN.py](./KNN.py)
+- Dependencies: [requirements.txt](./requirements.txt)
+```bash
+pip install -r "requirements.txt"
+python "KNN.py"
+```
 
-### PR Curves  
-![PR Curve — Multilabel](PR_Curve_multilabel.png)  
-![PR Curve — Multilabel Label 2](PR_curve_multilabel_label_2.png)
+## Limitations and reproducibility notes
 
-### Subset Accuracy  
-![Subset Accuracy — Multilabel](KvsSubset_accuracy_multilabel.png)
+- The datasets are loaded from scikit-learn; the multilabel data is generated in code.
+- Saved figures represent existing recorded runs. Metrics may change with dependency versions and data-generation settings.
 
----
+## Author
 
-## 💡 Insights
-- **KNN** provides interpretable decision boundaries without explicit training.  
-- **Binary**: High recall with optimized thresholds.  
-- **Multiclass**: Excellent separation among classes.  
-- **Multilabel**: Balanced precision and recall across correlated outputs.  
+Shubham Kumar Singh
 
----
+## License
 
-## 🔮 Future Enhancements
-- Add **distance weighting** (uniform vs distance) analysis  
-- Compare **KNN vs SVM** for similar datasets  
-- Extend to **regression tasks**  
-- Implement **KD-Tree / Ball-Tree acceleration** for scalability  
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
----
-
-## 👨‍💻 Author
-**Shubham Singh**
-
----
-
-## 📜 License
+```text
 MIT License
+
+Copyright (c) 2026 Shubham Kumar Singh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
