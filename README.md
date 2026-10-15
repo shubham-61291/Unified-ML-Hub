@@ -1,81 +1,83 @@
-# 🧠 Unified-ML-Hub  
-*A Unified Repository for Supervised and Unsupervised Machine Learning Models*  
+# Unified ML Hub
 
-This repository showcases a **comprehensive collection of machine learning algorithms** — both **supervised** and **unsupervised** — implemented, trained, and documented by **Shubham Singh**.  
-Each model folder includes its own datasets, training scripts, visualizations, and explainability analyses (SHAP, feature importance, confusion matrices, learning curves, etc.).  
+> A layered, code-first collection of supervised and unsupervised machine-learning experiments.
 
----
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## 🧭 Repository Overview
+## Overview
 
-| Category | Description | Folder Link |
-|-----------|-------------|--------------|
-| 🤖 **Supervised Learning** | Models trained using **labeled data**. Includes algorithms for regression, classification, and ranking tasks. | [Open Supervised Folder](./supervised/) |
-| 🧩 **Unsupervised Learning** | Models trained on **unlabeled data** to find structure, detect anomalies, or compress information. Includes clustering, dimensionality reduction, association rule mining, and anomaly detection. | [Open Unsupervised Folder](./unsupervised/) |
+Unified ML Hub organizes individual algorithm experiments beneath two top-level learning paradigms. Each algorithm-level directory contains its implementation, a local dependency file where provided, existing result visualizations, and a focused README. The documentation is organized to follow the repository tree rather than treating it as a flat list.
 
----
+## Repository map
 
-## 🧠 Supervised Learning
+| Layer | Purpose | Navigation |
+|---|---|---|
+| Supervised learning | Learn from labeled examples for classification, regression or ranking | [Open supervised overview](./supervised/README.md) |
+| Unsupervised learning | Explore groups, low-dimensional representations, anomalies and item co-occurrence | [Open unsupervised overview](./unsupervised/README.md) |
 
-Supervised learning algorithms learn from labeled examples to predict future outcomes.  
-This section covers **three key sub-domains**:
+## Supervised learning
 
-| Sub-Category | Description | Folder Link |
-|---------------|-------------|--------------|
-| 🧠 **Classification** | Predicts discrete labels — e.g., spam detection, sentiment analysis, image recognition. | [Classification Models](./supervised/Classification%20(Categorical%20Output)/) |
-| 📈 **Regression** | Predicts continuous outputs — e.g., house price prediction, demand forecasting. | [Regression Models](./supervised/Regression%20(Continuous%20Output)/) |
-| 🎯 **Ranking** | Orders items by relevance — e.g., search ranking, recommendation systems. | [Ranking Models](./supervised/RANKING/) |
+| Collection | What it contains | README |
+|---|---|---|
+| **Classification (Categorical Output)** | Binary, multiclass and multilabel classifiers: boosted trees, KNN, Keras neural networks, Naïve Bayes, SVM, decision tree, logistic regression and random forest. | [Open overview](./supervised/Classification%20%28Categorical%20Output%29/README.md) |
+| **Regression (Continuous Output)** | Linear and polynomial baselines, regularized regression, LightGBM regression and neural regression with uncertainty-oriented experiments. | [Open overview](./supervised/Regression%20%28Continuous%20Output%29/README.md) |
+| **Learning-to-Rank** | Pointwise, pairwise, listwise, boosted and neural ranking experiments. | [Open overview](./supervised/RANKING/README.md) |
 
-🔗 [View Complete Supervised README](./supervised/README.md)
+## Unsupervised learning
 
----
+| Collection | What it contains | README |
+|---|---|---|
+| **Clustering** | Nine clustering methods/variants with internal and post-hoc external diagnostics. | [Open overview](./unsupervised/CLUSTERING/README.md) |
+| **Dimensionality Reduction** | Linear, manifold and neural representations, with plots and downstream evaluation. | [Open overview](./unsupervised/Dimensionality%20Reduction/README.md) |
+| **Anomaly Detection** | Classical, distance/statistical and autoencoder approaches on synthetic data. | [Open overview](./unsupervised/Anomaly%20Detection/README.md) |
+| **Association Rule Learning** | Apriori, FP-Growth and Eclat on demonstration and synthetic transactions. | [Open overview](./unsupervised/Association%20Rule%20Learning/README.md) |
 
-## 🧩 Unsupervised Learning
+## How to use this repository
 
-Unsupervised learning identifies **hidden structures** in data without predefined labels.  
-This section covers **four major categories**:
+1. Open the overview for the learning paradigm or task you need.
+2. Follow the link to the algorithm directory and read its local README before running code.
+3. Install the dependencies from that directory’s `requirements.txt` where present. Some notebook exports contain IPython `!pip` magic and must be run in a notebook-compatible environment as committed, or have those magic lines removed after dependencies are installed.
+4. Review the dataset and evaluation notes before interpreting a plot or a score.
 
-| Sub-Category | Description | Folder Link |
-|---------------|-------------|--------------|
-| 🧠 **Clustering** | Groups similar data points (e.g., K-Means, DBSCAN, GMM, Spectral). | [Clustering Models](./unsupervised/CLUSTERING/) |
-| 📉 **Dimensionality Reduction** | Compresses data while retaining structure (e.g., PCA, t-SNE, UMAP, Autoencoder). | [Dimensionality Reduction](./unsupervised/Dimensionality%20Reduction/) |
-| ⚠️ **Anomaly Detection** | Detects outliers or rare patterns (e.g., Isolation Forest, One-Class SVM, Autoencoder). | [Anomaly Detection](./unsupervised/Anomaly%20Detection/) |
-| 🛒 **Association Rule Learning** | Finds co-occurrence relationships (e.g., Apriori, FP-Growth, Eclat). | [Association Rule Learning](./unsupervised/Association%20Rule%20Learning/) |
+## Reproducibility and interpretation
 
-🔗 [View Complete Unsupervised README](./unsupervised/README.md)
+- Many classification examples use scikit-learn’s built-in Breast Cancer and Iris datasets; multilabel and several unsupervised demonstrations generate data in code. California Housing examples fetch data on first use. The association-rule example constructs synthetic transactions.
+- Saved PNG files are retained experiment artifacts. This documentation refresh checks source, paths and claims; it does not claim every experiment was freshly rerun or that all historical metric tables were reproduced.
+- Thresholds, scores and feature-importance plots are evidence about a particular experiment, dataset and split—not causal claims or guarantees of production performance.
+- GPU support and dependency compatibility depend on the installed versions, operating system and hardware.
 
----
+## Documentation and licensing
 
-## 📊 Summary Overview
+Each directory with a README also has a local `LICENSE` file. All package READMEs include the full MIT License text and link to their own `./LICENSE`. See [the repository license](./LICENSE).
 
-| Learning Type | Example Algorithms | Example Use-Cases | Evaluation Metrics |
-|----------------|--------------------|-------------------|--------------------|
-| **Supervised (Regression)** | Linear, Ridge, GBRT, Neural Nets | Price prediction, time-series forecasting | RMSE, MAE, R² |
-| **Supervised (Classification)** | Logistic Regression, SVM, XGBoost | Spam detection, fraud classification | Accuracy, F1, AUC |
-| **Supervised (Ranking)** | LambdaMART, ListNet, Neural Rankers | Recommendation systems, search relevance | NDCG, MAP |
-| **Unsupervised (Clustering)** | K-Means, DBSCAN, GMM | Customer segmentation, grouping | Silhouette, NMI |
-| **Unsupervised (Dim. Reduction)** | PCA, t-SNE, UMAP, VAE | Visualization, compression | Reconstruction error, trustworthiness |
-| **Unsupervised (Anomaly)** | Isolation Forest, One-Class SVM | Fraud detection, fault monitoring | AUC, Precision-Recall |
-| **Unsupervised (Rules)** | Apriori, FP-Growth, Eclat | Market basket analysis | Support, Confidence, Lift |
+## Author
 
----
+Shubham Kumar Singh
 
-## ⚙️ Repository Highlights
+## License
 
-✅ End-to-End Implementations (Scikit-learn, PyTorch, TensorFlow)  
-✅ Clean visualizations: learning curves, residuals, SHAP, and t-SNE  
-✅ Modular code structure (each algorithm in its own directory)  
-✅ Unified documentation format across all categories  
-✅ MIT Licensed, open for educational and research use  
+Licensed under the MIT License. See [`./LICENSE`](./LICENSE). The complete license text is included below for portability.
 
----
+```text
+MIT License
 
-## 👨‍💻 Author  
-**Shubham Singh**
+Copyright (c) 2026 Shubham Kumar Singh
 
----
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-## 📜 License  
-This project is released under the **MIT License**.  
-Feel free to use, modify, and distribute with attribution.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
